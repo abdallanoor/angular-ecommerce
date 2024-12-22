@@ -1,0 +1,3 @@
+.link-underline {
+  @apply uppercase text-xs font-semibold tracking-wider hover:underline hover:underline-offset-6 decoration-1;
+}

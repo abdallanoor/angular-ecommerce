@@ -1,1 +1,67 @@
-<p>navbar works!</p>
+<header class="sticky right-0 left-0 top-0 bg-white z-10">
+    <div class="container flex justify-between items-center py-3">
+        <nav class="flex-1">
+            <!-- Drawer Navigation for Small Screens -->
+            <p-drawer header="E-commerce" [(visible)]="visible">
+                <ul class="flex flex-col gap-4">
+                    @for (link of mainNavLinks; track $index) {
+                    <li>
+                        <a [routerLink]="link.path" (click)="visible = false" class="link-underline"
+                            routerLinkActive="underline underline-offset-6">{{link.label}}</a>
+                    </li>
+                    }
+                </ul>
+            </p-drawer>
+
+            <!-- Drawer Button for Small Screens -->
+            <button (click)="visible = true" class="flex lg:hidden">
+                <i class="pi pi-bars" style="font-size: 1.2rem;"></i>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <ul class="flex gap-4 max-lg:hidden">
+                @for (link of mainNavLinks; track $index) {
+                <li>
+                    <a [routerLink]="link.path" class="link-underline"
+                        routerLinkActive="underline underline-offset-6">{{link.label}}</a>
+                </li>
+                }
+            </ul>
+        </nav>
+
+        <!-- Logo -->
+        <a routerLink="/" class="p-1">
+            <h1 class="font-bold text-xl leading-none max-lg:ml-2" title="Home">E-commerce</h1>
+        </a>
+
+        <!-- User/Icons Navigation -->
+        <nav class="flex-1 flex justify-end">
+            <ul class="flex gap-4">
+                @for (link of filteredUserNavLinks; track $index) {
+                <li class="max-lg:hidden">
+                    <a [routerLink]="link.path" class="link-underline">
+                        {{link.label}}
+                        @if (link.label === 'Bag') {
+                        (2)
+                        }
+                    </a>
+                </li>
+                }
+
+                @for (icon of filteredIconNavLinks; track $index) {
+                <li class="lg:hidden">
+                    <a class="relative flex" [routerLink]="icon.path" [title]="icon.path">
+                        <i class="relative pi" [class]="icon.icon" style="font-size: 1.2rem;"></i>
+                        @if (icon.path === 'cart') {
+                        <span
+                            class="absolute text-[8px] font-semibold top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/4 leading-4">
+                            9
+                        </span>
+                        }
+                    </a>
+                </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</header>
