@@ -1,6 +1,6 @@
 <header class="sticky right-0 left-0 top-0 bg-white z-10">
     <div class="container flex justify-between items-center py-3">
-        <nav class="flex-1">
+        <nav class="lg:flex-1">
             <!-- Drawer Navigation for Small Screens -->
             <p-drawer header="E-commerce" [(visible)]="visible">
                 <ul class="flex flex-col gap-4">
@@ -30,13 +30,13 @@
         </nav>
 
         <!-- Logo -->
-        <a routerLink="/" class="p-1">
-            <h1 class="font-bold text-xl leading-none max-lg:ml-2" title="Home">E-commerce</h1>
+        <a routerLink="/">
+            <h1 class="font-bold text-lg leading-none max-lg:ml-3" title="Home">E-commerce</h1>
         </a>
 
         <!-- User/Icons Navigation -->
-        <nav class="flex-1 flex justify-end">
-            <ul class="flex gap-4">
+        <nav class="flex-1 flex items-center justify-end p-1">
+            <ul class="flex items-center gap-4">
                 @for (link of filteredUserNavLinks; track $index) {
                 <li class="max-lg:hidden">
                     <a [routerLink]="link.path" class="link-underline">
