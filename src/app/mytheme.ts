@@ -358,7 +358,7 @@ export const MyPreset = definePreset(Nora, {
       },
       optionGroup: {
         padding: '0.5rem 0.75rem',
-        fontWeight: '700',
+        fontWeight: '600',
       },
     },
     content: {
@@ -379,7 +379,7 @@ export const MyPreset = definePreset(Nora, {
       },
       submenuLabel: {
         padding: '0.5rem 0.75rem',
-        fontWeight: '700',
+        fontWeight: '600',
       },
       submenuIcon: {
         size: '0.875rem',
@@ -709,7 +709,7 @@ export const MyPreset = definePreset(Nora, {
         hoverColor: '{text.color}',
         activeColor: '{text.color}',
         padding: '1.125rem',
-        fontWeight: '700',
+        fontWeight: '600',
         borderRadius: '0',
         borderWidth: '0 1px 1px 1px',
         borderColor: '{content.border.color}',
@@ -895,7 +895,7 @@ export const MyPreset = definePreset(Nora, {
         borderRadius: '{border.radius.md}',
         padding: '0 0.5rem',
         fontSize: '0.75rem',
-        fontWeight: '700',
+        fontWeight: '600',
         minWidth: '1.5rem',
         height: '1.5rem',
       },
@@ -1032,7 +1032,7 @@ export const MyPreset = definePreset(Nora, {
           paddingY: '{form.field.lg.padding.y}',
         },
         label: {
-          fontWeight: '700',
+          fontWeight: '600',
         },
         raisedShadow:
           '0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
@@ -2086,7 +2086,7 @@ export const MyPreset = definePreset(Nora, {
         },
       },
       columnTitle: {
-        fontWeight: '700',
+        fontWeight: '600',
       },
       row: {
         background: '{content.background}',
@@ -2114,7 +2114,7 @@ export const MyPreset = definePreset(Nora, {
         padding: '0.75rem 1rem',
       },
       columnFooter: {
-        fontWeight: '700',
+        fontWeight: '600',
       },
       footer: {
         background: '{content.background}',
@@ -2242,7 +2242,7 @@ export const MyPreset = definePreset(Nora, {
       },
       title: {
         fontSize: '1.25rem',
-        fontWeight: '700',
+        fontWeight: '600',
       },
       content: {
         padding:
@@ -2309,7 +2309,7 @@ export const MyPreset = definePreset(Nora, {
       },
       title: {
         fontSize: '1.5rem',
-        fontWeight: '700',
+        fontWeight: '600',
       },
       content: {
         padding:
@@ -2371,7 +2371,7 @@ export const MyPreset = definePreset(Nora, {
         borderColor: '{content.border.color}',
         padding: '0.5rem 0.75rem',
         gap: '0.5rem',
-        fontWeight: '700',
+        fontWeight: '600',
         focusRing: {
           width: '{focus.ring.width}',
           style: '{focus.ring.style}',
@@ -2681,7 +2681,7 @@ export const MyPreset = definePreset(Nora, {
         gap: '0.5rem',
       },
       text: {
-        fontWeight: '700',
+        fontWeight: '600',
       },
       icon: {
         size: '1rem',
@@ -3193,7 +3193,7 @@ export const MyPreset = definePreset(Nora, {
       },
       content: {
         padding: '0.5rem 0.75rem',
-        gap: '0.5rem',
+        gap: '0.25rem',
         sm: {
           padding: '0.375rem 0.625rem',
         },
@@ -3203,7 +3203,7 @@ export const MyPreset = definePreset(Nora, {
       },
       text: {
         fontSize: '1rem',
-        fontWeight: '700',
+        fontWeight: '600',
         sm: {
           fontSize: '0.875rem',
         },
@@ -3779,7 +3779,7 @@ export const MyPreset = definePreset(Nora, {
         padding: '0.375rem 1.125rem',
       },
       title: {
-        fontWeight: '700',
+        fontWeight: '600',
       },
       content: {
         padding: '1.125rem',
@@ -3848,7 +3848,7 @@ export const MyPreset = definePreset(Nora, {
       label: {
         color: '{primary.contrast.color}',
         fontSize: '0.75rem',
-        fontWeight: '700',
+        fontWeight: '600',
       },
       colorScheme: {
         light: {
@@ -4211,7 +4211,7 @@ export const MyPreset = definePreset(Nora, {
       stepTitle: {
         color: '{text.muted.color}',
         activeColor: '{primary.color}',
-        fontWeight: '700',
+        fontWeight: '600',
       },
       stepNumber: {
         background: '{content.background}',
@@ -4257,7 +4257,7 @@ export const MyPreset = definePreset(Nora, {
       itemLabel: {
         color: '{text.muted.color}',
         activeColor: '{primary.color}',
-        fontWeight: '700',
+        fontWeight: '600',
       },
       itemNumber: {
         background: '{content.background}',
@@ -4294,7 +4294,7 @@ export const MyPreset = definePreset(Nora, {
         hoverColor: '{text.color}',
         activeColor: '{primary.contrast.color}',
         padding: '1rem 1.25rem',
-        fontWeight: '700',
+        fontWeight: '600',
         margin: '0',
         gap: '0.5rem',
         focusRing: {
@@ -4337,7 +4337,7 @@ export const MyPreset = definePreset(Nora, {
         hoverColor: '{text.color}',
         activeColor: '{primary.contrast.color}',
         padding: '1rem 1.25rem',
-        fontWeight: '700',
+        fontWeight: '600',
         margin: '0',
         focusRing: {
           width: '{focus.ring.width}',
@@ -4511,7 +4511,7 @@ export const MyPreset = definePreset(Nora, {
     tag: {
       root: {
         fontSize: '0.875rem',
-        fontWeight: '700',
+        fontWeight: '600',
         padding: '0.25rem 0.5rem',
         gap: '0.25rem',
         borderRadius: '{content.border.radius}',
@@ -4633,23 +4633,23 @@ export const MyPreset = definePreset(Nora, {
     },
     toast: {
       root: {
-        width: '25rem',
+        width: '20rem',
         borderRadius: '{content.border.radius}',
         borderWidth: '0 0 0 6px',
         transitionDuration: '{transition.duration}',
       },
       icon: {
-        size: '1.125rem',
+        size: '1rem',
       },
       content: {
-        padding: '{overlay.popover.padding}',
+        padding: '1rem',
         gap: '0.5rem',
       },
       text: {
-        gap: '0.5rem',
+        gap: '0.15rem',
       },
       summary: {
-        fontWeight: '700',
+        fontWeight: '600',
         fontSize: '1rem',
       },
       detail: {
@@ -4667,7 +4667,7 @@ export const MyPreset = definePreset(Nora, {
         },
       },
       closeIcon: {
-        size: '1rem',
+        size: '0.9rem',
       },
       colorScheme: {
         light: {
@@ -5127,7 +5127,7 @@ export const MyPreset = definePreset(Nora, {
         },
       },
       columnTitle: {
-        fontWeight: '700',
+        fontWeight: '600',
       },
       row: {
         background: '{content.background}',
@@ -5156,7 +5156,7 @@ export const MyPreset = definePreset(Nora, {
         padding: '0.75rem 1rem',
       },
       columnFooter: {
-        fontWeight: '700',
+        fontWeight: '600',
       },
       footer: {
         background: '{content.background}',

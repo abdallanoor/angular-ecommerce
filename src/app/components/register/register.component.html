@@ -1,1 +1,33 @@
-<p>register works!</p>
+<div class="container flex justify-center items-center mt-6 mx-auto ">
+    <div class="w-96">
+        <h2 class="text-xl font-semibold mb-4">Create your account</h2>
+        <form class="flex flex-col gap-4" [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+
+            @for (inputField of inputsData; track $index) {
+            <div class="flex flex-col gap-1">
+                <p-floatlabel variant="in" class="text-sm">
+                    @if (inputField.type === 'password') {
+                    <p-password inputStyleClass="w-full" styleClass="w-full" autocomplete="current-password"
+                        [inputId]="inputField.name" [formControlName]="inputField.name" [feedback]="false"
+                        [toggleMask]="true">
+                    </p-password>
+                    } @else {
+                    <input pInputText class="w-full" [id]="inputField.name" [type]="inputField.type" autocomplete="on"
+                        [formControlName]="inputField.name" />
+                    }
+                    <label [for]="inputField.name">{{inputField.label}}</label>
+                </p-floatlabel>
+                <app-form-field-error-message [form]="registerForm" [controlName]="inputField.name" />
+            </div>
+            }
+
+            <p-button [loading]="isLoading" label="Create account" type="submit" size="large" styleClass="w-full"
+                variant="outlined" />
+        </form>
+
+        <p class="text-sm block text-center mt-4">Already have an account?
+            <a routerLink="/login" class="font-semibold underline underline-offset-4">Sign in</a>
+        </p>
+
+    </div>
+</div>
