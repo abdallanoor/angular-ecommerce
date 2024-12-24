@@ -1,7 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ToastService {
   messageService = inject(MessageService);
   success(message: string) {
@@ -13,7 +15,7 @@ export class ToastService {
       closable: false,
     });
   }
-  eroor(message: string) {
+  error(message: string) {
     this.messageService.add({
       severity: 'error',
       detail: message,

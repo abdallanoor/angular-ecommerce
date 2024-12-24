@@ -78,7 +78,7 @@ export class RegisterComponent {
         },
         error: (err: HttpErrorResponse) => {
           this.isLoading = false;
-          this._toast.eroor(err.error.message);
+          this._toast.error(err.error.message);
         },
       });
     } else {
