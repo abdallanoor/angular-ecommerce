@@ -4,7 +4,7 @@ import {
   resetPasswordForm,
 } from '../../shared/constants/form-groups.constants';
 import { Component, inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,6 +38,7 @@ type Steps = 1 | 2 | 3;
     FormFieldErrorMessageComponent,
     StepsModule,
     InputOtp,
+    RouterLink,
   ],
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.css'],
