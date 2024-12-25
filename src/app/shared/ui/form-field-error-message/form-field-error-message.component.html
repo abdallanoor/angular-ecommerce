@@ -6,7 +6,8 @@
     @if (form.get(controlName)?.getError('minlength') && controlName === 'name') {
     Name must have at-least 4 characters
     }
-    @if (form.get(controlName)?.getError('minlength') && controlName === 'password') {
+    @if (form.get(controlName)?.getError('minlength') && (controlName === 'password' || controlName === 'newPassword') )
+    {
     Password must have at-least 8 characters
     }
     @if (form.get(controlName)?.getError('email')) {

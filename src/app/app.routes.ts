@@ -11,8 +11,28 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { authGuard } from './core/guards/auth.guard';
 import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 export const routes: Routes = [
+  {
+    path: 'register',
+    component: RegisterComponent,
+    title: 'Create account',
+    canActivate: [isLoggedInGuard],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    title: 'Sigh in',
+    canActivate: [isLoggedInGuard],
+  },
+  {
+    path: 'resetpassword',
+    component: ResetPasswordComponent,
+    title: 'Forgot password',
+    canActivate: [isLoggedInGuard],
+  },
+
   { path: '', component: HomeComponent, title: 'Home' },
   { path: 'products', component: ProductsComponent, title: 'Products' },
   { path: 'categories', component: CategoriesComponent, title: 'Categories' },
@@ -34,19 +54,6 @@ export const routes: Routes = [
     component: ProfileComponent,
     title: 'My Accound',
     canActivate: [authGuard],
-  },
-
-  {
-    path: 'login',
-    component: LoginComponent,
-    title: 'Sigh in',
-    canActivate: [isLoggedInGuard],
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    title: 'Create account',
-    canActivate: [isLoggedInGuard],
   },
 
   { path: '**', component: NotFoundComponent, title: 'Not Found' },

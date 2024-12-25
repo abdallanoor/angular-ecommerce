@@ -65,8 +65,6 @@ export class LoginComponent {
       this._authService.login(this.loginForm.value).subscribe({
         next: (res) => {
           this.isLoading = false;
-          console.log(res);
-
           if (res.message === 'success') {
             this._router.navigate(['/']);
             this._toast.success(`Welcome back, ${res.user.name}!`);
