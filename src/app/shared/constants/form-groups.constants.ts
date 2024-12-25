@@ -13,6 +13,11 @@ export const registerForm: FormGroup = formBuilder.group(
   { validators: confirmPassword }
 );
 
+export const loginForm: FormGroup = formBuilder.group({
+  email: ['ecommerce.angular@gmail.com', registerValidators.email],
+  password: ['11111111', registerValidators.password],
+});
+
 export const sendEmailForm: FormGroup = formBuilder.group({
   email: ['', registerValidators.email],
 });
