@@ -1,17 +1,22 @@
 <main>
-  <section class="">
+  @for (landing of landingData; track $index) {
+  <section
+    class="relative container h-[calc(100vh-57px)] bg-cover bg-top"
+    [class]="landing.image"
+  >
     <div
-      class="container before:absolute before:inset-0 before:bg-black/20 text-center bg-landing h-[calc(100vh-57px)] bg-cover bg-top flex flex-col items-center justify-center gap-3"
+      class="h-full text-primary-contrast uppercase before:absolute before:inset-0 before:bg-black/20 text-center flex flex-col items-center justify-center gap-3"
     >
-      <p class="text-primary-contrast font-serif text-7xl opacity-90">
-        THE COAT EDIT
+      <p class="font-serif text-5xl lg:text-7xl opacity-90">
+        {{ landing.title }}
       </p>
       <a
         routerLink="/products"
-        class="text-primary-contrast uppercase text-xs font-semibold tracking-wider hover:underline hover:underline-offset-6 decoration-1 cursor-pointer opacity-90"
+        class="text-xs font-semibold tracking-wider hover:underline hover:underline-offset-6 decoration-1 cursor-pointer opacity-90"
       >
         DESCOVER MORE
       </a>
     </div>
   </section>
+  }
 </main>
