@@ -2305,18 +2305,17 @@ export const MyPreset = definePreset(Nora, {
         shadow: '{overlay.modal.shadow}',
       },
       header: {
-        padding: '{overlay.modal.padding}',
+        padding: '1rem',
       },
       title: {
-        fontSize: '1.5rem',
-        fontWeight: '600',
+        fontSize: '1.125rem',
+        fontWeight: '700',
       },
       content: {
-        padding:
-          '0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}',
+        padding: '0 1rem 1rem 1rem',
       },
       footer: {
-        padding: '{overlay.modal.padding}',
+        padding: '1rem',
       },
     },
     editor: {

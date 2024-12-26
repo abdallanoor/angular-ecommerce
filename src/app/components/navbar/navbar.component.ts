@@ -1,52 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { DrawerModule } from 'primeng/drawer';
 import { ButtonModule } from 'primeng/button';
-interface NavLink {
-  path: string;
-  label?: string;
-  icon?: string;
-}
+import { AuthService } from '../../core/services/auth.service';
+import { NavLink } from '../../core/interfaces/navbar';
+import {
+  authLinks,
+  mainLinks,
+  userLinks,
+} from '../../shared/constants/navlinks.constant';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, DrawerModule, ButtonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
-  visible: boolean = false;
-  userIsLoggedIn: boolean = false;
+export class NavbarComponent implements OnInit {
+  private authService = inject(AuthService);
+  private userDataSubscription: Subscription | null = null;
 
-  mainNavLinks: NavLink[] = [
-    { path: 'products', label: 'Products' },
-    { path: 'categories', label: 'Categories' },
-    { path: 'brands', label: 'Brands' },
-  ];
-  userNavLinks: NavLink[] = [
-    { path: 'login', label: 'Log In' },
-    { path: 'profile', label: 'Profile' },
-    { path: 'wishlist', label: 'Wishlist' },
-    { path: 'cart', label: 'Bag' },
-  ];
+  visible = false;
+  isLoggedIn = false;
 
-  iconNavLinks: NavLink[] = [
-    { path: 'login', icon: 'pi-user' },
-    { path: 'profile', icon: 'pi-user' },
-    { path: 'wishlist', icon: 'pi-heart' },
-    { path: 'cart', icon: 'pi-shopping-bag' },
-  ];
+  mainLinks: NavLink[] = mainLinks;
 
-  get filteredUserNavLinks(): NavLink[] {
-    return this.userNavLinks.filter((link) =>
-      this.userIsLoggedIn ? link.path !== 'login' : link.path !== 'profile'
+  ngOnInit(): void {
+    this.userDataSubscription = this.authService.userData.subscribe(
+      (userData) => (this.isLoggedIn = !!userData)
     );
   }
 
-  get filteredIconNavLinks(): NavLink[] {
-    return this.iconNavLinks.filter((icon) =>
-      this.userIsLoggedIn ? icon.path !== 'login' : icon.path !== 'profile'
-    );
+  get userNavLinks(): NavLink[] {
+    return this.isLoggedIn ? userLinks : authLinks;
   }
 }
