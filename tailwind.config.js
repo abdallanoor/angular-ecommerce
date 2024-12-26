@@ -16,6 +16,9 @@ module.exports = {
       textUnderlineOffset: {
         6: "6px",
       },
+      backgroundImage: {
+        landing: "url(/landing-coat.jpg)",
+      },
     },
   },
   corePlugins: {
