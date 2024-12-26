@@ -3,7 +3,7 @@ import {
   verifyCodeForm,
   resetPasswordForm,
 } from '../../shared/constants/form-groups.constants';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -22,6 +22,7 @@ import {
   sendEmailInputs,
   verifyCodeInputs,
 } from '../../shared/constants/form-inputs.constants';
+import { isPlatformBrowser } from '@angular/common';
 
 type Steps = 1 | 2 | 3;
 
@@ -47,6 +48,7 @@ export class ResetPasswordComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
   private toast = inject(ToastService);
+  private platform = inject(PLATFORM_ID);
 
   isLoading = false;
   steps: Steps = 1;
@@ -57,11 +59,8 @@ export class ResetPasswordComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined' && window.localStorage) {
+    if (isPlatformBrowser(this.platform)) {
       this.steps = (Number(localStorage.getItem('resetStep')) as Steps) || 1;
-      resetPasswordForm
-        .get('email')
-        ?.setValue(localStorage.getItem('resetEmail'));
     }
   }
 
@@ -127,6 +126,11 @@ export class ResetPasswordComponent implements OnInit {
       if (nextStep !== undefined) {
         this.steps = nextStep;
         localStorage.setItem('resetStep', this.steps.toString());
+
+        if (nextStep === 3) {
+          const email = localStorage.getItem('resetEmail') || '';
+          resetPasswordForm.get('email')?.setValue(email);
+        }
       }
       this.toast.success(message);
     };
@@ -134,7 +138,7 @@ export class ResetPasswordComponent implements OnInit {
     switch (this.steps) {
       case 1:
         this.authService.forgotPassword(this.form.value).subscribe({
-          next: (res) => {
+          next: () => {
             localStorage.setItem(
               'resetEmail',
               this.form.get('email')?.value || ''
