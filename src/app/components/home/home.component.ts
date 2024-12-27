@@ -10,8 +10,8 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent {
   landingData = [
-    { image: 'bg-[url(/landing-1.jpg)]', title: 'THE COAT EDIT' },
-    { image: 'bg-[url(/landing-3.jpg)]', title: 'THE SUIT GUIDE' },
-    { image: 'bg-[url(/landing-2.jpg)]', title: 'NEW NOW' },
+    { image: 'bg-[url(/landing-1.jpg)]', title: 'NEW NOW' },
+    { image: 'bg-[url(/landing-3.jpg)]', title: 'LATEST STYLE' },
+    { image: 'bg-[url(/landing-2.jpg)]', title: 'TRENDING NOW' },
   ];
 }

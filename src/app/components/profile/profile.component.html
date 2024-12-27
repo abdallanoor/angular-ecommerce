@@ -1,8 +1,30 @@
-<section class="container">
-  <button
-    (click)="logout()"
-    class="uppercase text-xs font-semibold tracking-wider underline underline-offset-6 decoration-1"
-  >
-    Logout
-  </button>
+<section class="container flex items-center justify-center mt-4">
+  <div class="w-96 sm:w-80">
+    <!-- <h2 class="text-xl font-semibold mb-4">Your Account</h2> -->
+    <p class="text-3xl font-serif tracking-wide mb-4">
+      Hi
+      {{ userName }}
+    </p>
+    <ul class="flex flex-col gap-2 font-semibold">
+      @for (link of profileLinks; track $index) {
+      <li>
+        <a
+          [routerLink]="link.path"
+          class="flex justify-between items-center py-2 tracking-wide uppercase text-xs"
+        >
+          {{ link.label }}
+          <i class="pi pi-arrow-right" style="font-size: 0.8rem"></i>
+        </a>
+      </li>
+      }
+      <li>
+        <button
+          (click)="logout()"
+          class="text-xs tracking-wide underline underline-offset-4 decoration-1 mt-6"
+        >
+          Sign out
+        </button>
+      </li>
+    </ul>
+  </div>
 </section>

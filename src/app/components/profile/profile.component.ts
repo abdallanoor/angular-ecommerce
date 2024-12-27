@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastService } from '../../core/services/toast.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
@@ -14,6 +14,22 @@ export class ProfileComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private toast = inject(ToastService);
+
+  userName: string = '';
+
+  constructor() {
+    this.authService.userData.subscribe((res) => {
+      this.userName = res?.name;
+    });
+  }
+
+  profileLinks = [
+    { path: '/orders', label: 'My orders' },
+    { path: '/personalInfo', label: 'My details' },
+    { path: '/address', label: 'My address' },
+    { path: '/wishlist', label: 'My favourites' },
+    { path: '/change-password', label: 'Change password' },
+  ];
 
   logout() {
     localStorage.removeItem('token');
