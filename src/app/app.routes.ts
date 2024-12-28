@@ -56,5 +56,9 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
 
-  { path: '**', component: NotFoundComponent, title: 'Not Found' },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    title: 'The page you are looking for dose not exist.',
+  },
 ];
