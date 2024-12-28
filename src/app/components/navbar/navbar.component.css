@@ -1,3 +1,9 @@
+:host {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
 .link-underline {
   @apply uppercase text-xs font-semibold tracking-wider hover:underline hover:underline-offset-6 decoration-1;
 }
