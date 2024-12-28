@@ -1,11 +1,14 @@
+<app-navbar />
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer />
 <p-toast
-  styleClass="!top-[59px] !right-4"
-  life="5000"
+  styleClass="!top-[59px] lg:!top-[57px] !right-4"
+  life="4000"
   [showTransformOptions]="'translateY(100%)'"
   [showTransitionOptions]="'400ms'"
   [hideTransitionOptions]="'400ms'"
   [showTransformOptions]="'translateX(100%)'"
   [hideTransformOptions]="'translateX(100%)'"
 />
-<app-navbar />
-<router-outlet></router-outlet>

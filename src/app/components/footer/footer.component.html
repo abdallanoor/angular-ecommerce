@@ -1,1 +1,14 @@
-<p>footer works!</p>
+<footer class="container flex flex-col justify-center items-center gap-5 py-5">
+  <div class="flex items-center gap-4">
+    @for (icon of socialMediaIcons; track $index) {
+    <i [class]="icon.icon" style="font-size: 0.9rem"></i>
+    }
+  </div>
+  <div class="flex justify-between items-center gap-4 text-xs">
+    <p>© {{ year }} E-COMMERCE All rights reserved</p>
+    <div class="flex items-center">
+      <img src="/visa.svg" alt="visa" width="30" height="30" />
+      <img src="/master-card.svg" alt="master-card" width="30" height="30" />
+    </div>
+  </div>
+</footer>
