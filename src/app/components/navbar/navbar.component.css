@@ -1,7 +1,6 @@
 :host {
   position: sticky;
   top: 0;
-  background: white;
   z-index: 10;
 }
 .link-underline {

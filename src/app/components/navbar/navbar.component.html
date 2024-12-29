@@ -1,4 +1,4 @@
-<header>
+<header class="bg-primary-contrast">
   <div class="container flex justify-between items-center py-5 lg:py-4">
     <nav class="lg:flex-1">
       <!-- Drawer Navigation for Small Screens -->
@@ -25,7 +25,7 @@
 
       <!-- Drawer Button for Small Screens -->
       <button (click)="visible = true" class="flex lg:hidden">
-        <i class="pi pi-bars" style="font-size: 1.2rem"></i>
+        <i class="pi pi-bars" style="font-size: 1.5rem"></i>
       </button>
 
       <!-- Desktop Navigation -->
@@ -44,11 +44,8 @@
     </nav>
 
     <!-- Logo -->
-    <a routerLink="/">
-      <h1
-        class="font-bold uppercase text-lg leading-none max-lg:ml-3"
-        title="Home"
-      >
+    <a routerLink="/" class="max-lg:ml-4">
+      <h1 class="font-bold uppercase text-lg leading-none" title="Home">
         E-commerce
       </h1>
     </a>
