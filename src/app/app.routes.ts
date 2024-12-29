@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { authGuard } from './core/guards/auth.guard';
 import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,11 @@ export const routes: Routes = [
 
   { path: '', component: HomeComponent, title: 'Home' },
   { path: 'products', component: ProductsComponent, title: 'Products' },
+  {
+    path: 'products-details/:id',
+    component: ProductDetailsComponent,
+    title: 'Product details',
+  },
   { path: 'categories', component: CategoriesComponent, title: 'Categories' },
   { path: 'brands', component: BrandsComponent, title: 'Brands' },
   {

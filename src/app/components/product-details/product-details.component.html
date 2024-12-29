@@ -1,1 +1,30 @@
-<p>product-details works!</p>
+<section class="container text-sm font-medium">
+  @if (productDetails) {
+  <div class="flex max-md:flex-col gap-4">
+    <div class="max-md:w-full max-md:overflow-x-auto md:w-3/5">
+      <div class="max-md:flex grid md:grid-cols-2 gap-1">
+        @for (image of productDetails.images; track $index) {
+        <!-- <img [src]="image" alt="Product Image" /> -->
+        <p-image
+          [src]="image"
+          alt="Product Images"
+          styleClass="w-full h-full max-md:w-80 max-md:h-auto"
+          [preview]="true"
+        />
+        }
+      </div>
+    </div>
+    <div class="md:w-2/5 flex flex-col gap-3">
+      <p class="text-base">{{ productDetails.title }}</p>
+      <div>
+        <p class="my-1">price</p>
+        <p>EGY {{ productDetails.price }}</p>
+      </div>
+      <div>
+        <p class="my-1">description</p>
+        <p>{{ productDetails.description }}</p>
+      </div>
+    </div>
+  </div>
+  }
+</section>

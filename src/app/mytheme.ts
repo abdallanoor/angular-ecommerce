@@ -4086,8 +4086,8 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           root: {
-            background: '{surface.300}',
-            animationBackground: 'rgba(255,255,255,0.4)',
+            background: 'rgba(0, 0, 0, 0.08)',
+            animationBackground: 'rgba(255,255,255,0.3)',
           },
         },
         dark: {
