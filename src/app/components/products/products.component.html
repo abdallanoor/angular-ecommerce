@@ -3,44 +3,10 @@
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 gap-y-6 my-4"
   >
-    @if (isLoading) { @for (skeleton of skeleton; track $index) {
-    <div class="aspect-[5/7]">
-      <p-skeleton styleClass="mb-2 !h-full" />
-      <p-skeleton width="10rem" styleClass="mb-2" />
-      <p-skeleton width="5rem" styleClass="mb-2" />
-    </div>
+    @if (isLoading) { @for (skeleton of productSkeletons; track $index) {
+    <product-card-loader />
     } } @for (product of products; track product._id) {
-    <div class="flex flex-col rounded-md animate-fadein">
-      <a [routerLink]="'/products-details/' + product._id" class="aspect-[5/7]">
-        <img
-          [src]="product.imageCover"
-          class="w-full h-full object-cover"
-          width="300"
-          height="411"
-          [alt]="product.title"
-        />
-      </a>
-      <div class="py-2 md:px-1 text-sm font-medium">
-        <div class="flex items-center justify-between">
-          <a
-            [routerLink]="'/products-details/' + product._id"
-            class="hover:underline underline-offset-4 decoration-1"
-            [title]="product.title"
-          >
-            {{ product.title.split(" ").slice(0, 3).join(" ") }}
-          </a>
-          <button>
-            <i
-              class="pi pi-heart"
-              style="font-size: 1.1rem"
-              title="add to you favorites"
-            ></i>
-          </button>
-        </div>
-        <p>EGP {{ product.price }}</p>
-      </div>
-      <p-button label="add" styleClass="w-full" class="sm:hidden" />
-    </div>
+    <app-product-card [product]="product" />
     }
   </div>
 </section>

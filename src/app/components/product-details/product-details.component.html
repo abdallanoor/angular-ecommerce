@@ -1,30 +1,90 @@
-<section class="container text-sm font-medium">
-  @if (productDetails) {
-  <div class="flex max-md:flex-col gap-4">
-    <div class="max-md:w-full max-md:overflow-x-auto md:w-3/5">
-      <div class="max-md:flex grid md:grid-cols-2 gap-1">
-        @for (image of productDetails.images; track $index) {
-        <!-- <img [src]="image" alt="Product Image" /> -->
+<section class="container mb-10">
+  @if (isLoading) {
+  <product-details-loader />
+  } @if (productDetails) {
+  <div class="flex max-md:flex-col gap-4 animate-fadein">
+    <div class="max-md:w-full max-md:overflow-x-auto md:w-3/5 lg:w-2/3">
+      <div class="max-md:flex grid grid-cols-2 gap-1">
+        @if (productDetails.images.length > 0) { @for (image of
+        productDetails.images; track $index) {
         <p-image
           [src]="image"
           alt="Product Images"
           styleClass="w-full h-full max-md:w-80 max-md:h-auto"
+          loading="lazy"
           [preview]="true"
         />
-        }
+        } }
       </div>
     </div>
-    <div class="md:w-2/5 flex flex-col gap-3">
-      <p class="text-base">{{ productDetails.title }}</p>
-      <div>
-        <p class="my-1">price</p>
-        <p>EGY {{ productDetails.price }}</p>
+
+    <div class="md:w-2/5 lg:w-2/6 flex flex-col gap-5 sticky top-14 h-fit">
+      <div class="font-medium">
+        <p class="text-base">{{ productDetails.title }}</p>
+        <p class="text-lg">EGY {{ productDetails.price }}</p>
       </div>
-      <div>
-        <p class="my-1">description</p>
-        <p>{{ productDetails.description }}</p>
+
+      <div class="flex items-center gap-2">
+        <p-rating
+          stars="5"
+          [(ngModel)]="productDetails.ratingsAverage"
+          [readonly]="true"
+          cancel="false"
+        />
+        <p class="font-medium text-sm leading-none">
+          {{ productDetails.ratingsQuantity }} rate
+        </p>
       </div>
+
+      <div class="w-full flex flex-col gap-2">
+        <p-button
+          label="add to bag"
+          class="w-full"
+          styleClass="w-full uppercase"
+        />
+        <p-button
+          icon="pi pi-heart"
+          label="add to favorites"
+          class="w-full"
+          styleClass="w-full uppercase"
+          [outlined]="true"
+        />
+      </div>
+
+      <p class="text-sm">{{ productDetails.description }}</p>
+
+      <div class="flex gap-2">
+        <p-tag
+          severity="secondary"
+          [value]="productDetails.category.name"
+          title="category"
+        />
+        <p-tag
+          severity="secondary"
+          [value]="productDetails.brand.name"
+          title="brand"
+        />
+      </div>
+      @for (feature of paymentFeatures; track $index) {
+      <div class="flex gap-2 items-center leading-none">
+        <i [class]="feature.icon" style="font-size: 1.4rem"></i>
+        <div>
+          <p class="text-sm font-medium">{{ feature.title }}</p>
+          <p class="text-xs">{{ feature.description }}</p>
+        </div>
+      </div>
+      }
     </div>
   </div>
-  }
+
+  @if (relatedProducts.length > 0) {
+  <h2 class="text-lg font-medium mt-10 mb-4 uppercase">Related products</h2>
+  <div
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-1"
+  >
+    @for (product of relatedProducts; track product._id) {
+    <app-product-card [product]="product" />
+    }
+  </div>
+  } }
 </section>

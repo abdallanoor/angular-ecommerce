@@ -1,53 +1,100 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterLinkActive } from '@angular/router';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../core/services/products.service';
 import { Subscription } from 'rxjs';
 import { Image } from 'primeng/image';
 import { Title } from '@angular/platform-browser';
+import { PaymentFeatures, Product } from '../../core/interfaces/product';
+import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
+import { Rating } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
+import { ToastService } from '../../core/services/toast.service';
+import { SkeletonModule } from 'primeng/skeleton';
+import { ProductCardComponent } from '../../shared/ui/product-card/product-card.component';
+import { ProductDetailsLoader } from '../../shared/ui/skeleton-loaders/product-details-loader.component';
+import { paymentFeatures } from '../../shared/constants/products.constants';
 
-interface Product {
-  _id: number;
-  title: string;
-  price: number;
-  imageCover: string;
-  description: string;
-  images: [];
-}
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [Image],
+  imports: [
+    Image,
+    ButtonModule,
+    TagModule,
+    Rating,
+    FormsModule,
+    SkeletonModule,
+    ProductCardComponent,
+    ProductDetailsLoader,
+  ],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css',
 })
-export class ProductDetailsComponent {
-  activatedRoute = inject(ActivatedRoute);
-  productsService = inject(ProductsService);
-  title = inject(Title);
+export class ProductDetailsComponent implements OnInit, OnDestroy {
+  private activatedRoute = inject(ActivatedRoute);
+  private productsService = inject(ProductsService);
+  private toast = inject(ToastService);
+  private titleService = inject(Title);
 
-  subscription: Subscription = new Subscription();
+  private subscription = new Subscription();
 
-  isLoading: boolean = false;
+  isLoading = false;
   productDetails!: Product;
+  relatedProducts: Product[] = [];
+
+  paymentFeatures: PaymentFeatures[] = paymentFeatures;
+
   ngOnInit(): void {
-    let id: string | null = '';
-    this.activatedRoute.paramMap.subscribe({
-      next: (params) => {
-        id = params.get('id');
-      },
-    });
+    this.subscription.add(
+      this.activatedRoute.paramMap.subscribe({
+        next: (params) => {
+          const id = params.get('id');
+          if (id) {
+            this.loadProductDetails(id);
+          } else {
+            this.toast.error('Invalid product ID');
+          }
+        },
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  private loadProductDetails(id: string): void {
     this.isLoading = true;
+
+    this.productDetails = undefined!;
+    this.relatedProducts = [];
+
     this.subscription.add(
       this.productsService.getSpecificProduct(id).subscribe({
-        next: (res) => {
+        next: (response) => {
           this.isLoading = false;
-          this.productDetails = res.data;
-          this.title.setTitle(this.productDetails.title);
-          // console.log(this.productDetails);
+          this.productDetails = response.data;
+          this.titleService.setTitle(this.productDetails.title);
+          this.loadRelatedProducts(this.productDetails.brand._id);
         },
-        error: (err) => {
+        error: (error) => {
+          console.error('Failed to load product details:', error);
+          this.toast.error('Failed to load product');
           this.isLoading = false;
-          console.error('Failed to load product details:', err);
+        },
+      })
+    );
+  }
+
+  private loadRelatedProducts(brandId: string): void {
+    this.subscription.add(
+      this.productsService.getProductsByBrand(brandId).subscribe({
+        next: (response) => {
+          this.relatedProducts = response.data;
+        },
+        error: (error) => {
+          console.error('Failed to load related products:', error);
+          this.toast.error('Failed to load related products');
         },
       })
     );

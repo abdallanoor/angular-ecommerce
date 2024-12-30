@@ -11,6 +11,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { MyPreset } from './mytheme';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { IMAGE_CONFIG } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -35,5 +36,12 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    {
+      provide: IMAGE_CONFIG,
+      useValue: {
+        disableImageSizeWarning: true,
+        disableImageLazyLoadWarning: true,
+      },
+    },
   ],
 };

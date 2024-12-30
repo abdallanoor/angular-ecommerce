@@ -18,4 +18,8 @@ export class ProductsService {
   getSpecificProduct(id: string): Observable<any> {
     return this.httpCLient.get(baseUrl + `api/v1/products/${id}`);
   }
+
+  getProductsByBrand(id: string): Observable<any> {
+    return this.httpCLient.get(baseUrl + `api/v1/products?brand=${id}`);
+  }
 }

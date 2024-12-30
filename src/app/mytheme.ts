@@ -311,17 +311,17 @@ export const MyPreset = definePreset(Nora, {
     iconSize: '1rem',
     anchorGutter: '0',
     primary: {
-      50: '{zinc.50}',
-      100: '{zinc.100}',
-      200: '{zinc.200}',
-      300: '{zinc.300}',
-      400: '{zinc.400}',
-      500: '{zinc.500}',
-      600: '{zinc.600}',
-      700: '{zinc.700}',
-      800: '{zinc.800}',
-      900: '{zinc.900}',
-      950: '{zinc.950}',
+      50: '{neutral.50}',
+      100: '{neutral.100}',
+      200: '{neutral.200}',
+      300: '{neutral.300}',
+      400: '{neutral.400}',
+      500: '{neutral.500}',
+      600: '{neutral.600}',
+      700: '{neutral.700}',
+      800: '{neutral.800}',
+      900: '{neutral.900}',
+      950: '{neutral.950}',
     },
     formField: {
       paddingX: '0.75rem',
@@ -438,62 +438,62 @@ export const MyPreset = definePreset(Nora, {
     //     },
     //     mask: {
     //       background: 'rgba(0,0,0,0.4)',
-    //       color: '{surface.200}',
+    //       color: '{neutral.200}',
     //     },
     //     formField: {
-    //       background: '{surface.0}',
-    //       disabledBackground: '{surface.300}',
-    //       filledBackground: '{surface.100}',
-    //       filledHoverBackground: '{surface.100}',
-    //       filledFocusBackground: '{surface.100}',
-    //       borderColor: '{surface.500}',
-    //       hoverBorderColor: '{surface.500}',
-    //       focusBorderColor: '{surface.500}',
+    //       background: '{neutral.0}',
+    //       disabledBackground: '{neutral.300}',
+    //       filledBackground: '{neutral.100}',
+    //       filledHoverBackground: '{neutral.100}',
+    //       filledFocusBackground: '{neutral.100}',
+    //       borderColor: '{neutral.500}',
+    //       hoverBorderColor: '{neutral.500}',
+    //       focusBorderColor: '{neutral.500}',
     //       invalidBorderColor: '{red.500}',
-    //       color: '{surface.900}',
-    //       disabledColor: '{surface.600}',
-    //       placeholderColor: '{surface.600}',
+    //       color: '{neutral.900}',
+    //       disabledColor: '{neutral.600}',
+    //       placeholderColor: '{neutral.600}',
     //       invalidPlaceholderColor: '{red.600}',
-    //       floatLabelColor: '{surface.600}',
+    //       floatLabelColor: '{neutral.600}',
     //       floatLabelFocusColor: '{primary.color}',
-    //       floatLabelActiveColor: '{surface.600}',
+    //       floatLabelActiveColor: '{neutral.600}',
     //       floatLabelInvalidColor: '{form.field.invalid.placeholder.color}',
-    //       iconColor: '{surface.900}',
+    //       iconColor: '{neutral.900}',
     //       shadow: 'none',
     //     },
     //     text: {
-    //       color: '{surface.900}',
-    //       hoverColor: '{surface.950}',
-    //       mutedColor: '{surface.600}',
-    //       hoverMutedColor: '{surface.700}',
+    //       color: '{neutral.900}',
+    //       hoverColor: '{neutral.950}',
+    //       mutedColor: '{neutral.600}',
+    //       hoverMutedColor: '{neutral.700}',
     //     },
     //     content: {
-    //       background: '{surface.0}',
-    //       hoverBackground: '{surface.200}',
-    //       borderColor: '{surface.400}',
+    //       background: '{neutral.0}',
+    //       hoverBackground: '{neutral.200}',
+    //       borderColor: '{neutral.400}',
     //       color: '{text.color}',
     //       hoverColor: '{text.hover.color}',
     //     },
     //     overlay: {
     //       select: {
-    //         background: '{surface.0}',
+    //         background: '{neutral.0}',
     //         borderColor: 'transparent',
     //         color: '{text.color}',
     //       },
     //       popover: {
-    //         background: '{surface.0}',
+    //         background: '{neutral.0}',
     //         borderColor: 'transparent',
     //         color: '{text.color}',
     //       },
     //       modal: {
-    //         background: '{surface.0}',
+    //         background: '{neutral.0}',
     //         borderColor: 'transparent',
     //         color: '{text.color}',
     //       },
     //     },
     //     list: {
     //       option: {
-    //         focusBackground: '{surface.200}',
+    //         focusBackground: '{neutral.200}',
     //         selectedBackground: '{highlight.background}',
     //         selectedFocusBackground: '{highlight.focus.background}',
     //         color: '{text.color}',
@@ -513,7 +513,7 @@ export const MyPreset = definePreset(Nora, {
     //     navigation: {
     //       item: {
     //         focusBackground: '{primary.color}',
-    //         activeBackground: '{surface.200}',
+    //         activeBackground: '{neutral.200}',
     //         color: '{text.color}',
     //         focusColor: '{primary.contrast.color}',
     //         activeColor: '{text.hover.color}',
@@ -551,74 +551,74 @@ export const MyPreset = definePreset(Nora, {
     //     },
     //     primary: {
     //       color: '{primary.500}',
-    //       contrastColor: '{surface.950}',
+    //       contrastColor: '{neutral.950}',
     //       hoverColor: '{primary.400}',
     //       activeColor: '{primary.300}',
     //     },
     //     highlight: {
     //       background: '{primary.500}',
     //       focusBackground: '{primary.400}',
-    //       color: '{surface.950}',
-    //       focusColor: '{surface.950}',
+    //       color: '{neutral.950}',
+    //       focusColor: '{neutral.950}',
     //     },
     //     mask: {
     //       background: 'rgba(0,0,0,0.6)',
-    //       color: '{surface.200}',
+    //       color: '{neutral.200}',
     //     },
     //     formField: {
-    //       background: '{surface.950}',
-    //       disabledBackground: '{surface.700}',
-    //       filledBackground: '{surface.800}',
-    //       filledHoverBackground: '{surface.800}',
-    //       filledFocusBackground: '{surface.800}',
-    //       borderColor: '{surface.500}',
-    //       hoverBorderColor: '{surface.500}',
-    //       focusBorderColor: '{surface.500}',
+    //       background: '{neutral.950}',
+    //       disabledBackground: '{neutral.700}',
+    //       filledBackground: '{neutral.800}',
+    //       filledHoverBackground: '{neutral.800}',
+    //       filledFocusBackground: '{neutral.800}',
+    //       borderColor: '{neutral.500}',
+    //       hoverBorderColor: '{neutral.500}',
+    //       focusBorderColor: '{neutral.500}',
     //       invalidBorderColor: '{red.400}',
-    //       color: '{surface.0}',
-    //       disabledColor: '{surface.400}',
-    //       placeholderColor: '{surface.400}',
+    //       color: '{neutral.0}',
+    //       disabledColor: '{neutral.400}',
+    //       placeholderColor: '{neutral.400}',
     //       invalidPlaceholderColor: '{red.400}',
-    //       floatLabelColor: '{surface.400}',
+    //       floatLabelColor: '{neutral.400}',
     //       floatLabelFocusColor: '{primary.color}',
-    //       floatLabelActiveColor: '{surface.400}',
+    //       floatLabelActiveColor: '{neutral.400}',
     //       floatLabelInvalidColor: '{form.field.invalid.placeholder.color}',
-    //       iconColor: '{surface.0}',
+    //       iconColor: '{neutral.0}',
     //       shadow: 'none',
     //     },
     //     text: {
-    //       color: '{surface.0}',
-    //       hoverColor: '{surface.0}',
-    //       mutedColor: '{surface.400}',
-    //       hoverMutedColor: '{surface.300}',
+    //       color: '{neutral.0}',
+    //       hoverColor: '{neutral.0}',
+    //       mutedColor: '{neutral.400}',
+    //       hoverMutedColor: '{neutral.300}',
     //     },
     //     content: {
-    //       background: '{surface.900}',
-    //       hoverBackground: '{surface.700}',
-    //       borderColor: '{surface.500}',
+    //       background: '{neutral.900}',
+    //       hoverBackground: '{neutral.700}',
+    //       borderColor: '{neutral.500}',
     //       color: '{text.color}',
     //       hoverColor: '{text.hover.color}',
     //     },
     //     overlay: {
     //       select: {
-    //         background: '{surface.900}',
-    //         borderColor: '{surface.700}',
+    //         background: '{neutral.900}',
+    //         borderColor: '{neutral.700}',
     //         color: '{text.color}',
     //       },
     //       popover: {
-    //         background: '{surface.900}',
-    //         borderColor: '{surface.700}',
+    //         background: '{neutral.900}',
+    //         borderColor: '{neutral.700}',
     //         color: '{text.color}',
     //       },
     //       modal: {
-    //         background: '{surface.900}',
-    //         borderColor: '{surface.700}',
+    //         background: '{neutral.900}',
+    //         borderColor: '{neutral.700}',
     //         color: '{text.color}',
     //       },
     //     },
     //     list: {
     //       option: {
-    //         focusBackground: '{surface.700}',
+    //         focusBackground: '{neutral.700}',
     //         selectedBackground: '{highlight.background}',
     //         selectedFocusBackground: '{highlight.focus.background}',
     //         color: '{text.color}',
@@ -638,7 +638,7 @@ export const MyPreset = definePreset(Nora, {
     //     navigation: {
     //       item: {
     //         focusBackground: '{primary.color}',
-    //         activeBackground: '{surface.700}',
+    //         activeBackground: '{neutral.700}',
     //         color: '{text.color}',
     //         focusColor: '{primary.contrast.color}',
     //         activeColor: '{text.color}',
@@ -663,30 +663,42 @@ export const MyPreset = definePreset(Nora, {
     colorScheme: {
       light: {
         primary: {
-          color: '{zinc.950}',
+          color: '{neutral.950}',
           inverseColor: '#ffffff',
-          hoverColor: '{zinc.900}',
-          activeColor: '{zinc.800}',
+          hoverColor: '{neutral.900}',
+          activeColor: '{neutral.800}',
         },
         highlight: {
-          background: '{zinc.950}',
-          focusBackground: '{zinc.700}',
+          background: '{neutral.950}',
+          focusBackground: '{neutral.700}',
           color: '#ffffff',
           focusColor: '#ffffff',
+        },
+        text: {
+          color: '{neutral.900}',
+          hoverColor: '{neutral.950}',
+          mutedColor: '{neutral.500}',
+          hoverMutedColor: '{neutral.700}',
         },
       },
       dark: {
         primary: {
-          color: '{zinc.50}',
-          inverseColor: '{zinc.950}',
-          hoverColor: '{zinc.100}',
-          activeColor: '{zinc.200}',
+          color: '{neutral.50}',
+          inverseColor: '{neutral.950}',
+          hoverColor: '{neutral.100}',
+          activeColor: '{neutral.200}',
         },
         highlight: {
           background: 'rgba(250, 250, 250, .16)',
           focusBackground: 'rgba(250, 250, 250, .24)',
           color: 'rgba(255,255,255,.87)',
           focusColor: 'rgba(255,255,255,.87)',
+        },
+        text: {
+          color: '{neutral.0}',
+          hoverColor: '{neutral.0}',
+          mutedColor: '{neutral.400}',
+          hoverMutedColor: '{neutral.300}',
         },
       },
     },
@@ -831,22 +843,22 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           chip: {
-            focusBackground: '{surface.300}',
-            focusColor: '{surface.900}',
+            focusBackground: '{neutral.300}',
+            focusColor: '{neutral.900}',
           },
           dropdown: {
-            hoverBackground: '{surface.200}',
-            activeBackground: '{surface.300}',
+            hoverBackground: '{neutral.200}',
+            activeBackground: '{neutral.300}',
           },
         },
         dark: {
           chip: {
-            focusBackground: '{surface.600}',
-            focusColor: '{surface.0}',
+            focusBackground: '{neutral.600}',
+            focusColor: '{neutral.0}',
           },
           dropdown: {
-            hoverBackground: '{surface.700}',
-            activeBackground: '{surface.600}',
+            hoverBackground: '{neutral.700}',
+            activeBackground: '{neutral.600}',
           },
         },
       },
@@ -924,28 +936,28 @@ export const MyPreset = definePreset(Nora, {
             color: '{primary.contrast.color}',
           },
           secondary: {
-            background: '{surface.200}',
-            color: '{surface.700}',
+            background: '{neutral.200}',
+            color: '{neutral.700}',
           },
           success: {
             background: '{green.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           info: {
             background: '{sky.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           warn: {
             background: '{orange.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           danger: {
             background: '{red.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           contrast: {
-            background: '{surface.950}',
-            color: '{surface.0}',
+            background: '{neutral.950}',
+            color: '{neutral.0}',
           },
         },
         dark: {
@@ -954,8 +966,8 @@ export const MyPreset = definePreset(Nora, {
             color: '{primary.contrast.color}',
           },
           secondary: {
-            background: '{surface.700}',
-            color: '{surface.200}',
+            background: '{neutral.700}',
+            color: '{neutral.200}',
           },
           success: {
             background: '{green.500}',
@@ -974,8 +986,8 @@ export const MyPreset = definePreset(Nora, {
             color: '{red.950}',
           },
           contrast: {
-            background: '{surface.0}',
-            color: '{surface.950}',
+            background: '{neutral.0}',
+            color: '{neutral.950}',
           },
         },
       },
@@ -1032,7 +1044,7 @@ export const MyPreset = definePreset(Nora, {
           paddingY: '{form.field.lg.padding.y}',
         },
         label: {
-          fontWeight: '600',
+          fontWeight: '500',
         },
         raisedShadow:
           '0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
@@ -1063,17 +1075,17 @@ export const MyPreset = definePreset(Nora, {
               },
             },
             secondary: {
-              background: '{surface.200}',
-              hoverBackground: '{surface.300}',
-              activeBackground: '{surface.400}',
-              borderColor: '{surface.200}',
-              hoverBorderColor: '{surface.300}',
-              activeBorderColor: '{surface.400}',
-              color: '{surface.700}',
-              hoverColor: '{surface.800}',
-              activeColor: '{surface.900}',
+              background: '{neutral.200}',
+              hoverBackground: '{neutral.300}',
+              activeBackground: '{neutral.400}',
+              borderColor: '{neutral.200}',
+              hoverBorderColor: '{neutral.300}',
+              activeBorderColor: '{neutral.400}',
+              color: '{neutral.700}',
+              hoverColor: '{neutral.800}',
+              activeColor: '{neutral.900}',
               focusRing: {
-                color: '{surface.700}',
+                color: '{neutral.700}',
                 shadow: 'none',
               },
             },
@@ -1153,17 +1165,17 @@ export const MyPreset = definePreset(Nora, {
               },
             },
             contrast: {
-              background: '{surface.950}',
-              hoverBackground: '{surface.900}',
-              activeBackground: '{surface.800}',
-              borderColor: '{surface.950}',
-              hoverBorderColor: '{surface.900}',
-              activeBorderColor: '{surface.800}',
-              color: '{surface.0}',
-              hoverColor: '{surface.0}',
-              activeColor: '{surface.0}',
+              background: '{neutral.950}',
+              hoverBackground: '{neutral.900}',
+              activeBackground: '{neutral.800}',
+              borderColor: '{neutral.950}',
+              hoverBorderColor: '{neutral.900}',
+              activeBorderColor: '{neutral.800}',
+              color: '{neutral.0}',
+              hoverColor: '{neutral.0}',
+              activeColor: '{neutral.0}',
               focusRing: {
-                color: '{surface.950}',
+                color: '{neutral.950}',
                 shadow: 'none',
               },
             },
@@ -1176,10 +1188,10 @@ export const MyPreset = definePreset(Nora, {
               color: '{primary.color}',
             },
             secondary: {
-              hoverBackground: '{surface.50}',
-              activeBackground: '{surface.100}',
-              borderColor: '{surface.600}',
-              color: '{surface.600}',
+              hoverBackground: '{neutral.50}',
+              activeBackground: '{neutral.100}',
+              borderColor: '{neutral.600}',
+              color: '{neutral.600}',
             },
             success: {
               hoverBackground: '{green.50}',
@@ -1212,16 +1224,16 @@ export const MyPreset = definePreset(Nora, {
               color: '{red.600}',
             },
             contrast: {
-              hoverBackground: '{surface.50}',
-              activeBackground: '{surface.100}',
-              borderColor: '{surface.950}',
-              color: '{surface.950}',
+              hoverBackground: '{neutral.50}',
+              activeBackground: '{neutral.100}',
+              borderColor: '{neutral.950}',
+              color: '{neutral.950}',
             },
             plain: {
-              hoverBackground: '{surface.50}',
-              activeBackground: '{surface.100}',
-              borderColor: '{surface.900}',
-              color: '{surface.900}',
+              hoverBackground: '{neutral.50}',
+              activeBackground: '{neutral.100}',
+              borderColor: '{neutral.900}',
+              color: '{neutral.900}',
             },
           },
           text: {
@@ -1231,9 +1243,9 @@ export const MyPreset = definePreset(Nora, {
               color: '{primary.color}',
             },
             secondary: {
-              hoverBackground: '{surface.50}',
-              activeBackground: '{surface.100}',
-              color: '{surface.600}',
+              hoverBackground: '{neutral.50}',
+              activeBackground: '{neutral.100}',
+              color: '{neutral.600}',
             },
             success: {
               hoverBackground: '{green.50}',
@@ -1261,14 +1273,14 @@ export const MyPreset = definePreset(Nora, {
               color: '{red.600}',
             },
             contrast: {
-              hoverBackground: '{surface.50}',
-              activeBackground: '{surface.100}',
-              color: '{surface.950}',
+              hoverBackground: '{neutral.50}',
+              activeBackground: '{neutral.100}',
+              color: '{neutral.950}',
             },
             plain: {
-              hoverBackground: '{surface.50}',
-              activeBackground: '{surface.100}',
-              color: '{surface.900}',
+              hoverBackground: '{neutral.50}',
+              activeBackground: '{neutral.100}',
+              color: '{neutral.900}',
             },
           },
           link: {
@@ -1295,17 +1307,17 @@ export const MyPreset = definePreset(Nora, {
               },
             },
             secondary: {
-              background: '{surface.700}',
-              hoverBackground: '{surface.600}',
-              activeBackground: '{surface.500}',
-              borderColor: '{surface.700}',
-              hoverBorderColor: '{surface.600}',
-              activeBorderColor: '{surface.500}',
-              color: '{surface.200}',
-              hoverColor: '{surface.100}',
-              activeColor: '{surface.0}',
+              background: '{neutral.700}',
+              hoverBackground: '{neutral.600}',
+              activeBackground: '{neutral.500}',
+              borderColor: '{neutral.700}',
+              hoverBorderColor: '{neutral.600}',
+              activeBorderColor: '{neutral.500}',
+              color: '{neutral.200}',
+              hoverColor: '{neutral.100}',
+              activeColor: '{neutral.0}',
               focusRing: {
-                color: '{surface.200}',
+                color: '{neutral.200}',
                 shadow: 'none',
               },
             },
@@ -1385,17 +1397,17 @@ export const MyPreset = definePreset(Nora, {
               },
             },
             contrast: {
-              background: '{surface.0}',
-              hoverBackground: '{surface.100}',
-              activeBackground: '{surface.200}',
-              borderColor: '{surface.0}',
-              hoverBorderColor: '{surface.100}',
-              activeBorderColor: '{surface.200}',
-              color: '{surface.950}',
-              hoverColor: '{surface.950}',
-              activeColor: '{surface.950}',
+              background: '{neutral.0}',
+              hoverBackground: '{neutral.100}',
+              activeBackground: '{neutral.200}',
+              borderColor: '{neutral.0}',
+              hoverBorderColor: '{neutral.100}',
+              activeBorderColor: '{neutral.200}',
+              color: '{neutral.950}',
+              hoverColor: '{neutral.950}',
+              activeColor: '{neutral.950}',
               focusRing: {
-                color: '{surface.0}',
+                color: '{neutral.0}',
                 shadow: 'none',
               },
             },
@@ -1412,8 +1424,8 @@ export const MyPreset = definePreset(Nora, {
             secondary: {
               hoverBackground: 'rgba(255,255,255,0.04)',
               activeBackground: 'rgba(255,255,255,0.16)',
-              borderColor: '{surface.400}',
-              color: '{surface.400}',
+              borderColor: '{neutral.400}',
+              color: '{neutral.400}',
             },
             success: {
               hoverBackground: '{green.950}',
@@ -1446,16 +1458,16 @@ export const MyPreset = definePreset(Nora, {
               color: '{red.500}',
             },
             contrast: {
-              hoverBackground: '{surface.800}',
-              activeBackground: '{surface.700}',
-              borderColor: '{surface.0}',
-              color: '{surface.0}',
+              hoverBackground: '{neutral.800}',
+              activeBackground: '{neutral.700}',
+              borderColor: '{neutral.0}',
+              color: '{neutral.0}',
             },
             plain: {
-              hoverBackground: '{surface.800}',
-              activeBackground: '{surface.700}',
-              borderColor: '{surface.0}',
-              color: '{surface.0}',
+              hoverBackground: '{neutral.800}',
+              activeBackground: '{neutral.700}',
+              borderColor: '{neutral.0}',
+              color: '{neutral.0}',
             },
           },
           text: {
@@ -1467,9 +1479,9 @@ export const MyPreset = definePreset(Nora, {
               color: '{primary.color}',
             },
             secondary: {
-              hoverBackground: '{surface.800}',
-              activeBackground: '{surface.700}',
-              color: '{surface.400}',
+              hoverBackground: '{neutral.800}',
+              activeBackground: '{neutral.700}',
+              color: '{neutral.400}',
             },
             success: {
               hoverBackground:
@@ -1505,14 +1517,14 @@ export const MyPreset = definePreset(Nora, {
               color: '{red.500}',
             },
             contrast: {
-              hoverBackground: '{surface.800}',
-              activeBackground: '{surface.700}',
-              color: '{surface.0}',
+              hoverBackground: '{neutral.800}',
+              activeBackground: '{neutral.700}',
+              color: '{neutral.0}',
             },
             plain: {
-              hoverBackground: '{surface.800}',
-              activeBackground: '{surface.700}',
-              color: '{surface.0}',
+              hoverBackground: '{neutral.800}',
+              activeBackground: '{neutral.700}',
+              color: '{neutral.0}',
             },
           },
           link: {
@@ -1643,22 +1655,22 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           dropdown: {
-            hoverBackground: '{surface.200}',
-            activeBackground: '{surface.300}',
+            hoverBackground: '{neutral.200}',
+            activeBackground: '{neutral.300}',
           },
           today: {
-            background: '{surface.200}',
-            color: '{surface.900}',
+            background: '{neutral.200}',
+            color: '{neutral.900}',
           },
         },
         dark: {
           dropdown: {
-            hoverBackground: '{surface.700}',
-            activeBackground: '{surface.600}',
+            hoverBackground: '{neutral.700}',
+            activeBackground: '{neutral.600}',
           },
           today: {
-            background: '{surface.700}',
-            color: '{surface.0}',
+            background: '{neutral.700}',
+            color: '{neutral.0}',
           },
         },
       },
@@ -1711,15 +1723,15 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           indicator: {
-            background: '{surface.300}',
-            hoverBackground: '{surface.400}',
+            background: '{neutral.300}',
+            hoverBackground: '{neutral.400}',
             activeBackground: '{primary.color}',
           },
         },
         dark: {
           indicator: {
-            background: '{surface.600}',
-            hoverBackground: '{surface.500}',
+            background: '{neutral.600}',
+            hoverBackground: '{neutral.500}',
             activeBackground: '{primary.color}',
           },
         },
@@ -1877,26 +1889,26 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           root: {
-            background: '{surface.200}',
-            color: '{surface.900}',
+            background: '{neutral.200}',
+            color: '{neutral.900}',
           },
           icon: {
-            color: '{surface.900}',
+            color: '{neutral.900}',
           },
           removeIcon: {
-            color: '{surface.900}',
+            color: '{neutral.900}',
           },
         },
         dark: {
           root: {
-            background: '{surface.700}',
-            color: '{surface.0}',
+            background: '{neutral.700}',
+            color: '{neutral.0}',
           },
           icon: {
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           removeIcon: {
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
         },
       },
@@ -1924,20 +1936,20 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           panel: {
-            background: '{surface.800}',
-            borderColor: '{surface.900}',
+            background: '{neutral.800}',
+            borderColor: '{neutral.900}',
           },
           handle: {
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
         },
         dark: {
           panel: {
-            background: '{surface.900}',
-            borderColor: '{surface.700}',
+            background: '{neutral.900}',
+            borderColor: '{neutral.700}',
           },
           handle: {
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
         },
       },
@@ -2206,10 +2218,10 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           root: {
-            borderColor: '{surface.300}',
+            borderColor: '{neutral.300}',
           },
           row: {
-            stripedBackground: '{surface.50}',
+            stripedBackground: '{neutral.50}',
           },
           bodyCell: {
             selectedBorderColor: '{primary.100}',
@@ -2217,10 +2229,10 @@ export const MyPreset = definePreset(Nora, {
         },
         dark: {
           root: {
-            borderColor: '{surface.600}',
+            borderColor: '{neutral.600}',
           },
           row: {
-            stripedBackground: '{surface.950}',
+            stripedBackground: '{neutral.950}',
           },
           bodyCell: {
             selectedBorderColor: '{primary.900}',
@@ -2490,8 +2502,8 @@ export const MyPreset = definePreset(Nora, {
       navButton: {
         background: 'rgba(255, 255, 255, 0.1)',
         hoverBackground: 'rgba(255, 255, 255, 0.2)',
-        color: '{surface.100}',
-        hoverColor: '{surface.0}',
+        color: '{neutral.100}',
+        hoverColor: '{neutral.0}',
         size: '3rem',
         gutter: '0.5rem',
         prev: {
@@ -2532,7 +2544,7 @@ export const MyPreset = definePreset(Nora, {
       },
       caption: {
         background: 'rgba(0, 0, 0, 0.5)',
-        color: '{surface.100}',
+        color: '{neutral.100}',
         padding: '1rem',
       },
       indicatorList: {
@@ -2565,8 +2577,8 @@ export const MyPreset = definePreset(Nora, {
         gutter: '0.5rem',
         background: 'rgba(255, 255, 255, 0.1)',
         hoverBackground: 'rgba(255, 255, 255, 0.2)',
-        color: '{surface.50}',
-        hoverColor: '{surface.0}',
+        color: '{neutral.50}',
+        hoverColor: '{neutral.0}',
         borderRadius: '50%',
         focusRing: {
           width: '{focus.ring.width}',
@@ -2582,24 +2594,24 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           thumbnailNavButton: {
-            hoverBackground: '{surface.200}',
+            hoverBackground: '{neutral.200}',
             color: '{text.color}',
             hoverColor: '{text.hover.color}',
           },
           indicatorButton: {
-            background: '{surface.300}',
-            hoverBackground: '{surface.400}',
+            background: '{neutral.300}',
+            hoverBackground: '{neutral.400}',
           },
         },
         dark: {
           thumbnailNavButton: {
-            hoverBackground: '{surface.700}',
-            color: '{surface.0}',
-            hoverColor: '{surface.0}',
+            hoverBackground: '{neutral.700}',
+            color: '{neutral.0}',
+            hoverColor: '{neutral.0}',
           },
           indicatorButton: {
-            background: '{surface.600}',
-            hoverBackground: '{surface.500}',
+            background: '{neutral.600}',
+            hoverBackground: '{neutral.500}',
           },
         },
       },
@@ -2639,8 +2651,8 @@ export const MyPreset = definePreset(Nora, {
       },
       action: {
         hoverBackground: 'rgba(255,255,255,0.1)',
-        color: '{surface.50}',
-        hoverColor: '{surface.0}',
+        color: '{neutral.50}',
+        hoverColor: '{neutral.0}',
         size: '3rem',
         iconSize: '1.5rem',
         borderRadius: '{content.border.radius}',
@@ -2712,17 +2724,17 @@ export const MyPreset = definePreset(Nora, {
             shadow: 'none',
           },
           secondary: {
-            background: '{surface.200}',
-            borderColor: '{surface.200}',
-            color: '{surface.700}',
+            background: '{neutral.200}',
+            borderColor: '{neutral.200}',
+            color: '{neutral.700}',
             shadow: 'none',
           },
           contrast: {
-            background: '{surface.900}',
-            borderColor: '{surface.900}',
-            color: '{surface.50}',
+            background: '{neutral.900}',
+            borderColor: '{neutral.900}',
+            color: '{neutral.50}',
             shadow:
-              '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)',
+              '0px 4px 8px 0px color-mix(in srgb, {neutral.950}, transparent 96%)',
           },
         },
         dark: {
@@ -2751,15 +2763,15 @@ export const MyPreset = definePreset(Nora, {
             shadow: 'none',
           },
           secondary: {
-            background: '{surface.700}',
-            borderColor: '{surface.700}',
-            color: '{surface.200}',
+            background: '{neutral.700}',
+            borderColor: '{neutral.700}',
+            color: '{neutral.200}',
             shadow: 'none',
           },
           contrast: {
-            background: '{surface.0}',
-            borderColor: '{surface.0}',
-            color: '{surface.950}',
+            background: '{neutral.0}',
+            borderColor: '{neutral.0}',
+            color: '{neutral.950}',
             shadow: 'none',
           },
         },
@@ -2815,14 +2827,14 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           chip: {
-            focusBackground: '{surface.300}',
-            color: '{surface.900}',
+            focusBackground: '{neutral.300}',
+            color: '{neutral.900}',
           },
         },
         dark: {
           chip: {
-            focusBackground: '{surface.600}',
-            color: '{surface.0}',
+            focusBackground: '{neutral.600}',
+            color: '{neutral.0}',
           },
         },
       },
@@ -2856,14 +2868,14 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           button: {
-            hoverBackground: '{surface.200}',
-            activeBackground: '{surface.300}',
+            hoverBackground: '{neutral.200}',
+            activeBackground: '{neutral.300}',
           },
         },
         dark: {
           button: {
-            hoverBackground: '{surface.700}',
-            activeBackground: '{surface.600}',
+            hoverBackground: '{neutral.700}',
+            activeBackground: '{neutral.600}',
           },
         },
       },
@@ -2941,12 +2953,12 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           range: {
-            background: '{surface.300}',
+            background: '{neutral.300}',
           },
         },
         dark: {
           range: {
-            background: '{surface.600}',
+            background: '{neutral.600}',
           },
         },
       },
@@ -2998,12 +3010,12 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           option: {
-            stripedBackground: '{surface.100}',
+            stripedBackground: '{neutral.100}',
           },
         },
         dark: {
           option: {
-            stripedBackground: '{surface.800}',
+            stripedBackground: '{neutral.800}',
           },
         },
       },
@@ -3331,44 +3343,44 @@ export const MyPreset = definePreset(Nora, {
             },
           },
           secondary: {
-            background: '{surface.200}',
-            borderColor: '{surface.200}',
-            color: '{surface.700}',
+            background: '{neutral.200}',
+            borderColor: '{neutral.200}',
+            color: '{neutral.700}',
             shadow: 'none',
             closeButton: {
-              hoverBackground: '{surface.50}',
+              hoverBackground: '{neutral.50}',
               focusRing: {
-                color: '{surface.700}',
+                color: '{neutral.700}',
                 shadow: 'none',
               },
             },
             outlined: {
-              color: '{surface.600}',
-              borderColor: '{surface.600}',
+              color: '{neutral.600}',
+              borderColor: '{neutral.600}',
             },
             simple: {
-              color: '{surface.600}',
+              color: '{neutral.600}',
             },
           },
           contrast: {
-            background: '{surface.900}',
-            borderColor: '{surface.900}',
-            color: '{surface.50}',
+            background: '{neutral.900}',
+            borderColor: '{neutral.900}',
+            color: '{neutral.50}',
             shadow:
-              '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)',
+              '0px 4px 8px 0px color-mix(in srgb, {neutral.950}, transparent 96%)',
             closeButton: {
-              hoverBackground: '{surface.700}',
+              hoverBackground: '{neutral.700}',
               focusRing: {
-                color: '{surface.50}',
+                color: '{neutral.50}',
                 shadow: 'none',
               },
             },
             outlined: {
-              color: '{surface.900}',
-              borderColor: '{surface.900}',
+              color: '{neutral.900}',
+              borderColor: '{neutral.900}',
             },
             simple: {
-              color: '{surface.900}',
+              color: '{neutral.900}',
             },
           },
         },
@@ -3454,43 +3466,43 @@ export const MyPreset = definePreset(Nora, {
             },
           },
           secondary: {
-            background: '{surface.700}',
-            borderColor: '{surface.700}',
-            color: '{surface.200}',
+            background: '{neutral.700}',
+            borderColor: '{neutral.700}',
+            color: '{neutral.200}',
             shadow: 'none',
             closeButton: {
-              hoverBackground: '{surface.500}',
+              hoverBackground: '{neutral.500}',
               focusRing: {
-                color: '{surface.200}',
+                color: '{neutral.200}',
                 shadow: 'none',
               },
             },
             outlined: {
-              color: '{surface.400}',
-              borderColor: '{surface.400}',
+              color: '{neutral.400}',
+              borderColor: '{neutral.400}',
             },
             simple: {
-              color: '{surface.400}',
+              color: '{neutral.400}',
             },
           },
           contrast: {
-            background: '{surface.0}',
-            borderColor: '{surface.0}',
-            color: '{surface.950}',
+            background: '{neutral.0}',
+            borderColor: '{neutral.0}',
+            color: '{neutral.950}',
             shadow: 'none',
             closeButton: {
-              hoverBackground: '{surface.200}',
+              hoverBackground: '{neutral.200}',
               focusRing: {
-                color: '{surface.950}',
+                color: '{neutral.950}',
                 shadow: 'none',
               },
             },
             outlined: {
-              color: '{surface.0}',
-              borderColor: '{surface.0}',
+              color: '{neutral.0}',
+              borderColor: '{neutral.0}',
             },
             simple: {
-              color: '{surface.0}',
+              color: '{neutral.0}',
             },
           },
         },
@@ -3520,12 +3532,12 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           meters: {
-            background: '{surface.300}',
+            background: '{neutral.300}',
           },
         },
         dark: {
           meters: {
-            background: '{surface.600}',
+            background: '{neutral.600}',
           },
         },
       },
@@ -3739,7 +3751,7 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           meter: {
-            background: '{surface.300}',
+            background: '{neutral.300}',
           },
           strength: {
             weakBackground: '{red.600}',
@@ -3749,7 +3761,7 @@ export const MyPreset = definePreset(Nora, {
         },
         dark: {
           meter: {
-            background: '{surface.600}',
+            background: '{neutral.600}',
           },
           strength: {
             weakBackground: '{red.500}',
@@ -3852,12 +3864,12 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           root: {
-            background: '{surface.300}',
+            background: '{neutral.300}',
           },
         },
         dark: {
           root: {
-            background: '{surface.600}',
+            background: '{neutral.600}',
           },
         },
       },
@@ -3932,7 +3944,7 @@ export const MyPreset = definePreset(Nora, {
     },
     rating: {
       root: {
-        gap: '0.25rem',
+        gap: '0.20rem',
         transitionDuration: '{transition.duration}',
         focusRing: {
           width: '{focus.ring.width}',
@@ -3943,7 +3955,7 @@ export const MyPreset = definePreset(Nora, {
         },
       },
       icon: {
-        size: '1rem',
+        size: '0.9rem',
         color: '{text.muted.color}',
         hoverColor: '{primary.color}',
         activeColor: '{primary.color}',
@@ -3967,12 +3979,12 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           bar: {
-            background: '{surface.200}',
+            background: '{neutral.200}',
           },
         },
         dark: {
           bar: {
-            background: '{surface.700}',
+            background: '{neutral.700}',
           },
         },
       },
@@ -4134,12 +4146,12 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           track: {
-            background: '{surface.300}',
+            background: '{neutral.300}',
           },
         },
         dark: {
           track: {
-            background: '{surface.600}',
+            background: '{neutral.600}',
           },
         },
       },
@@ -4510,7 +4522,7 @@ export const MyPreset = definePreset(Nora, {
     tag: {
       root: {
         fontSize: '0.875rem',
-        fontWeight: '600',
+        fontWeight: '500',
         padding: '0.25rem 0.5rem',
         gap: '0.25rem',
         borderRadius: '{content.border.radius}',
@@ -4526,28 +4538,28 @@ export const MyPreset = definePreset(Nora, {
             color: '{primary.contrast.color}',
           },
           secondary: {
-            background: '{surface.200}',
-            color: '{surface.700}',
+            background: '{neutral.200}',
+            color: '{neutral.700}',
           },
           success: {
             background: '{green.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           info: {
             background: '{sky.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           warn: {
             background: '{orange.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           danger: {
             background: '{red.600}',
-            color: '{surface.0}',
+            color: '{neutral.0}',
           },
           contrast: {
-            background: '{surface.950}',
-            color: '{surface.0}',
+            background: '{neutral.950}',
+            color: '{neutral.0}',
           },
         },
         dark: {
@@ -4556,8 +4568,8 @@ export const MyPreset = definePreset(Nora, {
             color: '{primary.contrast.color}',
           },
           secondary: {
-            background: '{surface.700}',
-            color: '{surface.200}',
+            background: '{neutral.700}',
+            color: '{neutral.200}',
           },
           success: {
             background: '{green.500}',
@@ -4576,8 +4588,8 @@ export const MyPreset = definePreset(Nora, {
             color: '{red.950}',
           },
           contrast: {
-            background: '{surface.0}',
-            color: '{surface.950}',
+            background: '{neutral.0}',
+            color: '{neutral.950}',
           },
         },
       },
@@ -4728,30 +4740,30 @@ export const MyPreset = definePreset(Nora, {
             },
           },
           secondary: {
-            background: '{surface.200}',
-            borderColor: '{surface.200}',
-            color: '{surface.700}',
-            detailColor: '{surface.700}',
+            background: '{neutral.200}',
+            borderColor: '{neutral.200}',
+            color: '{neutral.700}',
+            detailColor: '{neutral.700}',
             shadow: '{overlay.popover.shadow}',
             closeButton: {
-              hoverBackground: '{surface.50}',
+              hoverBackground: '{neutral.50}',
               focusRing: {
-                color: '{surface.700}',
+                color: '{neutral.700}',
                 shadow: 'none',
               },
             },
           },
           contrast: {
-            background: '{surface.900}',
-            borderColor: '{surface.900}',
-            color: '{surface.50}',
-            detailColor: '{surface.0}',
+            background: '{neutral.900}',
+            borderColor: '{neutral.900}',
+            color: '{neutral.50}',
+            detailColor: '{neutral.0}',
             shadow:
-              '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)',
+              '0px 4px 8px 0px color-mix(in srgb, {neutral.950}, transparent 96%)',
             closeButton: {
-              hoverBackground: '{surface.700}',
+              hoverBackground: '{neutral.700}',
               focusRing: {
-                color: '{surface.50}',
+                color: '{neutral.50}',
                 shadow: 'none',
               },
             },
@@ -4816,29 +4828,29 @@ export const MyPreset = definePreset(Nora, {
             },
           },
           secondary: {
-            background: '{surface.700}',
-            borderColor: '{surface.700}',
-            color: '{surface.200}',
-            detailColor: '{surface.200}',
+            background: '{neutral.700}',
+            borderColor: '{neutral.700}',
+            color: '{neutral.200}',
+            detailColor: '{neutral.200}',
             shadow: '{overlay.popover.shadow}',
             closeButton: {
-              hoverBackground: '{surface.500}',
+              hoverBackground: '{neutral.500}',
               focusRing: {
-                color: '{surface.200}',
+                color: '{neutral.200}',
                 shadow: 'none',
               },
             },
           },
           contrast: {
-            background: '{surface.0}',
-            borderColor: '{surface.0}',
-            color: '{surface.950}',
-            detailColor: '{surface.950}',
+            background: '{neutral.0}',
+            borderColor: '{neutral.0}',
+            color: '{neutral.950}',
+            detailColor: '{neutral.950}',
             shadow: '{overlay.popover.shadow}',
             closeButton: {
-              hoverBackground: '{surface.200}',
+              hoverBackground: '{neutral.200}',
               focusRing: {
-                color: '{surface.950}',
+                color: '{neutral.950}',
                 shadow: 'none',
               },
             },
@@ -4895,12 +4907,12 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           root: {
-            hoverBackground: '{surface.200}',
+            hoverBackground: '{neutral.200}',
           },
         },
         dark: {
           root: {
-            hoverBackground: '{surface.700}',
+            hoverBackground: '{neutral.700}',
           },
         },
       },
@@ -4941,8 +4953,8 @@ export const MyPreset = definePreset(Nora, {
         checkedBackground: '{primary.contrast.color}',
         checkedHoverBackground: '{primary.contrast.color}',
         disabledBackground: '{form.field.disabled.color}',
-        color: '{surface.0}',
-        hoverColor: '{surface.0}',
+        color: '{neutral.0}',
+        hoverColor: '{neutral.0}',
         checkedColor: '{primary.color}',
         checkedHoverColor: '{primary.color}',
       },
@@ -4968,14 +4980,14 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           root: {
-            background: '{surface.900}',
-            color: '{surface.0}',
+            background: '{neutral.900}',
+            color: '{neutral.0}',
           },
         },
         dark: {
           root: {
-            background: '{surface.0}',
-            color: '{surface.900}',
+            background: '{neutral.0}',
+            color: '{neutral.900}',
           },
         },
       },
@@ -5204,7 +5216,7 @@ export const MyPreset = definePreset(Nora, {
       colorScheme: {
         light: {
           root: {
-            borderColor: '{surface.300}',
+            borderColor: '{neutral.300}',
           },
           bodyCell: {
             selectedBorderColor: '{primary.100}',
@@ -5212,7 +5224,7 @@ export const MyPreset = definePreset(Nora, {
         },
         dark: {
           root: {
-            borderColor: '{surface.600}',
+            borderColor: '{neutral.600}',
           },
           bodyCell: {
             selectedBorderColor: '{primary.900}',

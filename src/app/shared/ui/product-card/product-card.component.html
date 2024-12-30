@@ -1,0 +1,32 @@
+<div class="flex flex-col animate-fadein">
+  <a [routerLink]="'/products-details/' + product._id" class="aspect-[5/7]">
+    <img
+      [src]="product.imageCover"
+      class="w-full h-full object-cover"
+      width="300"
+      height="411"
+      [alt]="product.title"
+    />
+  </a>
+  <div class="text-xs sm:text-sm font-medium">
+    <div class="flex justify-between">
+      <div class="py-2 md:p-1">
+        <a
+          [routerLink]="'/products-details/' + product._id"
+          class="hover:underline underline-offset-4 decoration-1"
+          [title]="product.title"
+        >
+          {{ product.title.split(" ").slice(0, 3).join(" ") }}
+        </a>
+        <p>EGP {{ product.price }}</p>
+      </div>
+      <!-- <p-button icon="pi pi-heart" [rounded]="true" [text]="true" /> -->
+    </div>
+  </div>
+  <p-button
+    label="add"
+    styleClass="w-full uppercase !text-xs"
+    class="sm:hidden"
+    size="small"
+  />
+</div>
