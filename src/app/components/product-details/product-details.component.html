@@ -19,9 +19,9 @@
     </div>
 
     <div class="md:w-2/5 lg:w-2/6 flex flex-col gap-5 sticky top-14 h-fit">
-      <div class="font-medium">
-        <p class="text-base">{{ productDetails.title }}</p>
-        <p class="text-lg">EGY {{ productDetails.price }}</p>
+      <div>
+        <p class="font-medium">{{ productDetails.title }}</p>
+        <p class="text-sm font-bold">EGY {{ productDetails.price }}</p>
       </div>
 
       <div class="flex items-center gap-2">
@@ -54,16 +54,8 @@
       <p class="text-sm">{{ productDetails.description }}</p>
 
       <div class="flex gap-2">
-        <p-tag
-          severity="secondary"
-          [value]="productDetails.category.name"
-          title="category"
-        />
-        <p-tag
-          severity="secondary"
-          [value]="productDetails.brand.name"
-          title="brand"
-        />
+        <p-tag severity="secondary" [value]="productDetails.category.name" />
+        <p-tag severity="secondary" [value]="productDetails.brand.name" />
       </div>
       @for (feature of paymentFeatures; track $index) {
       <div class="flex gap-2 items-center leading-none">
