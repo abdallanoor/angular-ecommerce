@@ -7,7 +7,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { authGuard } from './core/guards/auth.guard';
 import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
@@ -44,9 +44,9 @@ export const routes: Routes = [
   { path: 'categories', component: CategoriesComponent, title: 'Categories' },
   { path: 'brands', component: BrandsComponent, title: 'Brands' },
   {
-    path: 'wishlist',
-    component: WishlistComponent,
-    title: 'Wishlist',
+    path: 'favorites',
+    component: FavoritesComponent,
+    title: 'My favorites',
     canActivate: [authGuard],
   },
   {

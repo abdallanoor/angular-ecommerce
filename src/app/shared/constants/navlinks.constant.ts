@@ -8,7 +8,7 @@ export const mainLinks: NavLink[] = [
 
 export const userLinks: NavLink[] = [
   { path: 'profile', label: 'Profile', icon: 'pi-user' },
-  { path: 'wishlist', label: 'Wishlist', icon: 'pi-heart' },
+  { path: 'favorites', label: 'favorites', icon: 'pi-heart' },
   { path: 'cart', label: 'Bag', icon: 'pi-shopping-bag' },
 ];
 export const authLinks: NavLink[] = [

@@ -27,7 +27,7 @@ export class ProfileComponent {
     { path: '/orders', label: 'My orders' },
     { path: '/personalInfo', label: 'My details' },
     { path: '/address', label: 'My address' },
-    { path: '/wishlist', label: 'My favourites' },
+    { path: '/favorites', label: 'My favorites' },
     { path: '/change-password', label: 'Change password' },
   ];
 
