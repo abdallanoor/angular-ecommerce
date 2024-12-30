@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { BrandsComponent } from './components/brands/brands.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
@@ -41,8 +39,6 @@ export const routes: Routes = [
     component: ProductDetailsComponent,
     title: 'Product details',
   },
-  { path: 'categories', component: CategoriesComponent, title: 'Categories' },
-  { path: 'brands', component: BrandsComponent, title: 'Brands' },
   {
     path: 'favorites',
     component: FavoritesComponent,
