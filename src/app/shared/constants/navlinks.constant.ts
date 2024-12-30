@@ -1,8 +1,8 @@
 import { NavLink } from '../../core/interfaces/navbar';
 
 export const mainLinks: NavLink[] = [
-  { path: 'products', label: 'Products' },
-  { path: 'categories', label: 'Categories' },
+  { path: 'products', label: 'New for men' },
+  // { path: 'categories', label: 'Categories' },
   { path: 'brands', label: 'Brands' },
 ];
 
