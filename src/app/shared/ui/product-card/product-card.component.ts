@@ -1,7 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Product } from '../../../core/interfaces/product';
 import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { CartService } from '../../../core/services/cart.service';
+import { ToastService } from '../../../core/services/toast.service';
+import { addToBag } from '../../utils/cart.utils';
 
 @Component({
   selector: 'app-product-card',
@@ -11,4 +14,13 @@ import { ButtonModule } from 'primeng/button';
 })
 export class ProductCardComponent {
   @Input() product!: Product;
+  cartService = inject(CartService);
+  toast = inject(ToastService);
+  addToCartIsLoading: boolean = false;
+
+  addToCart(id: string) {
+    addToBag(this.cartService, this.toast, id, (loading) => {
+      this.addToCartIsLoading = loading;
+    });
+  }
 }

@@ -14,6 +14,8 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ProductCardComponent } from '../../shared/ui/product-card/product-card.component';
 import { ProductDetailsLoader } from '../../shared/ui/skeleton-loaders/product-details-loader.component';
 import { paymentFeatures } from '../../shared/constants/products.constants';
+import { CartService } from '../../core/services/cart.service';
+import { addToBag } from '../../shared/utils/cart.utils';
 
 @Component({
   selector: 'app-product-details',
@@ -33,12 +35,14 @@ import { paymentFeatures } from '../../shared/constants/products.constants';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   private activatedRoute = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
+  private cartService = inject(CartService);
   private toast = inject(ToastService);
   private titleService = inject(Title);
 
   private subscription = new Subscription();
 
-  isLoading = false;
+  isLoading: boolean = false;
+  addToCartIsLoading: boolean = false;
   productDetails!: Product;
   relatedProducts: Product[] = [];
 
@@ -98,5 +102,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         },
       })
     );
+  }
+
+  addToCart(id: string) {
+    addToBag(this.cartService, this.toast, id, (loading) => {
+      this.addToCartIsLoading = loading;
+    });
   }
 }

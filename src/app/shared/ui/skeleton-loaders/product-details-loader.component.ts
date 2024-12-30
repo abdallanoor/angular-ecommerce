@@ -6,9 +6,9 @@ import { SkeletonModule } from 'primeng/skeleton';
   standalone: true,
   imports: [SkeletonModule],
   template: ` <div
-    class="sm:h-[calc(100vh-70px)] grid grid-cols-1 sm:grid-cols-3 gap-1"
+    class="md:h-[calc(100vh-70px)] grid grid-cols-1 md:grid-cols-3 gap-1"
   >
-    <div class="col-span-2 max-sm:h-[442px]">
+    <div class="col-span-2 max-md:h-[442px]">
       <p-skeleton styleClass="!h-full" />
     </div>
     <div class="col-span-1 flex flex-col gap-5">

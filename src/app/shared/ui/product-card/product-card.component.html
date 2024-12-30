@@ -28,5 +28,8 @@
     styleClass="w-full uppercase !text-xs"
     class="sm:hidden"
     outlined="true"
+    size="large"
+    [loading]="addToCartIsLoading"
+    (onClick)="addToCart(product._id)"
   />
 </div>
