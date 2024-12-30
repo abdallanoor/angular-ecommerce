@@ -78,9 +78,9 @@
   </div>
 
   @if (relatedProducts.length > 0) {
-  <h2 class="text-lg font-medium mt-10 mb-4 uppercase">Related products</h2>
+  <h2 class="text-lg font-medium mt-10 mb-3 uppercase">Related products</h2>
   <div
-    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-1"
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-y-3 gap-1"
   >
     @for (product of relatedProducts; track product._id) {
     <app-product-card [product]="product" />
