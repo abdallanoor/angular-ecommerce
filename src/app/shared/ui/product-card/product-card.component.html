@@ -42,31 +42,43 @@
 
       <!-- Action Buttons -->
       <div [ngClass]="{ 'flex gap-1 ml-auto': isCartProduct }">
-        <p-button icon="pi pi-heart" [rounded]="true" [text]="true"></p-button>
-        @if (isCartProduct && removeProduct) {
+        @if (isFavoriteProduct && removeProduct) {
         <p-button
-          icon="pi pi-times"
-          class="md:absolute md:top-1 md:right-1"
+          icon="pi pi-heart-fill"
+          class="absolute top-[2px] right-[2px]"
           [rounded]="true"
           [text]="true"
           [loading]="removeIsLoading && isClickedId === product._id"
           (onClick)="removeProduct(product._id)"
-        ></p-button>
+        />
+        } @else {
+        <p-button
+          icon="pi pi-heart"
+          class="absolute top-[2px] right-[2px] max-md:right-12"
+          [rounded]="true"
+          [text]="true"
+          [loading]="addToFavoritesIsLoading"
+          (onClick)="addToFavorites(product._id)"
+        />
+        } @if (isCartProduct && removeProduct) {
+        <p-button
+          icon="pi pi-trash"
+          class="max-md:mt-[2px]"
+          [rounded]="true"
+          [text]="true"
+          [loading]="removeIsLoading && isClickedId === product._id"
+          (onClick)="removeProduct(product._id)"
+        />
+        } @if (!isCartProduct) {
+        <p-button
+          icon="pi pi-shopping-bag"
+          [rounded]="true"
+          [text]="true"
+          [loading]="addToCartIsLoading"
+          (onClick)="addToCart(product._id)"
+        />
         }
       </div>
     </div>
-
-    <!-- Add to Cart Button -->
-    @if (!isCartProduct) {
-    <p-button
-      label="Add"
-      styleClass="w-full uppercase !text-xs"
-      class="sm:hidden"
-      outlined="true"
-      size="large"
-      [loading]="addToCartIsLoading"
-      (onClick)="addToCart(product._id)"
-    ></p-button>
-    }
   </div>
 </div>

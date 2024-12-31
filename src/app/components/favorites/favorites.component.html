@@ -1,1 +1,36 @@
-<p>favorites works!</p>
+@if (!isLoading && favorites.data.length == 0) {
+<section
+  class="container text-center flex flex-col items-center justify-center gap-4 mt-10 max-w-96"
+>
+  <p class="font-semibold text-sm">Your favorites is empty</p>
+  <p class="text-xs flex items-center gap-2">
+    <i class="pi pi-check"></i>
+    Use the hearts to add or remove favourites
+  </p>
+  <p class="text-xs flex items-center gap-2">
+    <i class="pi pi-check"></i>
+    Access your wishlist from any device
+  </p>
+</section>
+}
+<section class="container mt-4 mb-20">
+  @if (isLoading) {
+  <favorites-loader />
+  } @if (favorites && favorites.data.length > 0) {
+  <h1 class="font-medium uppercase mb-1">My favorites</h1>
+  <p class="text-sm mb-4">These are the items you liked the most</p>
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 gap-y-6 my-4"
+  >
+    @for (product of favorites.data; track product._id) {
+    <app-product-card
+      [product]="product"
+      [isFavoriteProduct]="true"
+      [removeProduct]="removeProductFromFavorites.bind(this)"
+      [removeIsLoading]="removeIsLoading"
+      [isClickedId]="isClickedId"
+    />
+    }
+  </div>
+  }
+</section>

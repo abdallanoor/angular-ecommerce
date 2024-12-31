@@ -6,6 +6,8 @@ import { CartService } from '../../../core/services/cart.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { addToBag } from '../../utils/cart.utils';
 import { NgClass } from '@angular/common';
+import { addToProductToFavorites } from '../../utils/favorites.utils';
+import { FavoritesService } from '../../../core/services/favorites.service';
 
 @Component({
   selector: 'app-product-card',
@@ -21,15 +23,29 @@ export class ProductCardComponent {
   @Input() CartProductCount: number = 0;
   @Input() CartProductPrice: number = 0;
   @Input() isCartProduct: boolean = false;
+  @Input() isFavoriteProduct: boolean = false;
 
   cartService = inject(CartService);
-  toast = inject(ToastService);
+  favoritesService = inject(FavoritesService);
+  toastService = inject(ToastService);
 
   addToCartIsLoading: boolean = false;
+  addToFavoritesIsLoading: boolean = false;
 
   addToCart(id: string) {
-    addToBag(this.cartService, this.toast, id, (loading) => {
+    addToBag(this.cartService, this.toastService, id, (loading) => {
       this.addToCartIsLoading = loading;
     });
+  }
+
+  addToFavorites(id: string) {
+    addToProductToFavorites(
+      this.favoritesService,
+      this.toastService,
+      id,
+      (loading) => {
+        this.addToFavoritesIsLoading = loading;
+      }
+    );
   }
 }

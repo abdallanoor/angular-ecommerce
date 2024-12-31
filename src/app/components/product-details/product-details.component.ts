@@ -16,6 +16,8 @@ import { ProductDetailsLoader } from '../../shared/ui/skeleton-loaders/product-d
 import { paymentFeatures } from '../../shared/constants/products.constants';
 import { CartService } from '../../core/services/cart.service';
 import { addToBag } from '../../shared/utils/cart.utils';
+import { addToProductToFavorites } from '../../shared/utils/favorites.utils';
+import { FavoritesService } from '../../core/services/favorites.service';
 
 @Component({
   selector: 'app-product-details',
@@ -36,13 +38,15 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   private activatedRoute = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
   private cartService = inject(CartService);
-  private toast = inject(ToastService);
+  private favoritesService = inject(FavoritesService);
+  private toastService = inject(ToastService);
   private titleService = inject(Title);
 
   private subscription = new Subscription();
 
   isLoading: boolean = false;
   addToCartIsLoading: boolean = false;
+  addToFavoritesIsLoading: boolean = false;
   productDetails!: Product;
   relatedProducts: Product[] = [];
 
@@ -56,7 +60,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
           if (id) {
             this.loadProductDetails(id);
           } else {
-            this.toast.error('Invalid product ID');
+            this.toastService.error('Invalid product ID');
           }
         },
       })
@@ -83,7 +87,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         },
         error: (error) => {
           console.error('Failed to load product details:', error);
-          this.toast.error('Failed to load product');
+          this.toastService.error('Failed to load product');
           this.isLoading = false;
         },
       })
@@ -98,15 +102,26 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         },
         error: (error) => {
           console.error('Failed to load related products:', error);
-          this.toast.error('Failed to load related products');
+          this.toastService.error('Failed to load related products');
         },
       })
     );
   }
 
   addToCart(id: string) {
-    addToBag(this.cartService, this.toast, id, (loading) => {
+    addToBag(this.cartService, this.toastService, id, (loading) => {
       this.addToCartIsLoading = loading;
     });
+  }
+
+  addToFavorites(id: string) {
+    addToProductToFavorites(
+      this.favoritesService,
+      this.toastService,
+      id,
+      (loading) => {
+        this.addToFavoritesIsLoading = loading;
+      }
+    );
   }
 }

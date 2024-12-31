@@ -50,6 +50,8 @@
           class="w-full"
           styleClass="w-full uppercase"
           [outlined]="true"
+          [loading]="addToFavoritesIsLoading"
+          (onClick)="addToFavorites(productDetails._id)"
         />
       </div>
 
