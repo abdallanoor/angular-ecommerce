@@ -1,4 +1,8 @@
-<div class="flex flex-col animate-fadein">
+<div
+  class="relative grid grid-cols-1 gap-1 animate-fadein"
+  [ngClass]="{ 'grid-cols-2 md:grid-cols-1 gap-2 md:gap-1': isCartProduct }"
+>
+  <!-- Product Image -->
   <a [routerLink]="'/products-details/' + product._id" class="aspect-[5/7]">
     <img
       [src]="product.imageCover"
@@ -8,9 +12,18 @@
       [alt]="product.title"
     />
   </a>
-  <div class="text-xs sm:text-sm font-medium">
-    <div class="flex justify-between">
-      <div class="py-2 md:p-1">
+
+  <!-- Product Details -->
+  <div
+    class="text-xs w-full sm:text-sm font-medium"
+    [ngClass]="{ 'max-md:text-sm': isCartProduct }"
+  >
+    <div
+      class="flex justify-between"
+      [ngClass]="{ 'max-md:flex-col-reverse max-md:gap-4': isCartProduct }"
+    >
+      <!-- Product Title and Price -->
+      <div class="pb-2 md:p-1 md:pt-0">
         <a
           [routerLink]="'/products-details/' + product._id"
           class="hover:underline underline-offset-4 decoration-1"
@@ -18,18 +31,42 @@
         >
           {{ product.title.split(" ").slice(0, 3).join(" ") }}
         </a>
+
+        @if (isCartProduct) {
+        <p class="font-bold">EGP {{ CartProductPrice }}</p>
+        <p class="mt-4 md:mt-1">Qty: {{ CartProductCount }}</p>
+        } @else {
         <p class="font-bold">EGP {{ product.price }}</p>
+        }
       </div>
-      <!-- <p-button icon="pi pi-heart" [rounded]="true" [text]="true" /> -->
+
+      <!-- Action Buttons -->
+      <div [ngClass]="{ 'flex gap-1 ml-auto': isCartProduct }">
+        <p-button icon="pi pi-heart" [rounded]="true" [text]="true"></p-button>
+        @if (isCartProduct && removeProduct) {
+        <p-button
+          icon="pi pi-times"
+          class="md:absolute md:top-1 md:right-1"
+          [rounded]="true"
+          [text]="true"
+          [loading]="removeIsLoading && isClickedId === product._id"
+          (onClick)="removeProduct(product._id)"
+        ></p-button>
+        }
+      </div>
     </div>
+
+    <!-- Add to Cart Button -->
+    @if (!isCartProduct) {
+    <p-button
+      label="Add"
+      styleClass="w-full uppercase !text-xs"
+      class="sm:hidden"
+      outlined="true"
+      size="large"
+      [loading]="addToCartIsLoading"
+      (onClick)="addToCart(product._id)"
+    ></p-button>
+    }
   </div>
-  <p-button
-    label="add"
-    styleClass="w-full uppercase !text-xs"
-    class="sm:hidden"
-    outlined="true"
-    size="large"
-    [loading]="addToCartIsLoading"
-    (onClick)="addToCart(product._id)"
-  />
 </div>

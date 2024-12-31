@@ -1,7 +1,6 @@
 export interface Product {
   sold: number;
   images: string[];
-  subcategory: Subcategory[];
   ratingsQuantity: number;
   _id: string;
   title: string;
@@ -13,23 +12,12 @@ export interface Product {
   category: Category;
   brand: Category;
   ratingsAverage: number;
-  createdAt: string;
-  updatedAt: string;
   id: string;
 }
 
-export interface Category {
+interface Category {
   _id: string;
   name: string;
-  slug: string;
-  image: string;
-}
-
-export interface Subcategory {
-  _id: string;
-  name: string;
-  slug: string;
-  category: string;
 }
 
 export interface PaymentFeatures {

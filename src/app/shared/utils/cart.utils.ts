@@ -9,9 +9,10 @@ export function addToBag(
 ): void {
   setLoading(true);
   cartService.addProductToCart(productId).subscribe({
-    next: () => {
+    next: (res) => {
       setLoading(false);
       toastService.success('Product added to bag');
+      cartService.cartCount.next(res.numOfCartItems);
     },
     error: (err) => {
       setLoading(false);

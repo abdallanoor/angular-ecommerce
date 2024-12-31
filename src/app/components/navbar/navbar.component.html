@@ -62,12 +62,16 @@
             routerLinkActive="underline underline-offset-6"
           >
             {{ link.label }}
-            @if (link.label === 'Bag') { (2) }
+            @if (link.label === 'Bag') { ({{ cartCount }}) }
           </a>
         </li>
 
         <li class="lg:hidden">
-          <a class="relative flex" [routerLink]="link.path" [title]="link.path">
+          <a
+            class="relative flex"
+            [routerLink]="link.path"
+            [title]="link.label"
+          >
             <i
               class="relative pi"
               [class]="link.icon"
@@ -77,7 +81,7 @@
             <span
               class="absolute text-[8px] font-semibold top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/4 leading-4"
             >
-              9
+              {{ cartCount }}
             </span>
             }
           </a>

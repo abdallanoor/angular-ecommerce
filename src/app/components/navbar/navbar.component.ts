@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { DrawerModule } from 'primeng/drawer';
 import { ButtonModule } from 'primeng/button';
@@ -9,7 +9,7 @@ import {
   mainLinks,
   userLinks,
 } from '../../shared/constants/navlinks.constant';
-import { Subscription } from 'rxjs';
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,20 +20,49 @@ import { Subscription } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
   private authService = inject(AuthService);
-  private userDataSubscription: Subscription | null = null;
+  private cartService = inject(CartService);
 
-  visible = false;
-  isLoggedIn = false;
-
+  visible: boolean = false;
+  isLoggedIn: boolean = false;
+  cartCount: number = 0;
   mainLinks: NavLink[] = mainLinks;
 
   ngOnInit(): void {
-    this.userDataSubscription = this.authService.userData.subscribe(
-      (userData) => (this.isLoggedIn = !!userData)
-    );
+    this.setupUserDataListener();
+    this.setupCartCountListener();
   }
 
   get userNavLinks(): NavLink[] {
     return this.isLoggedIn ? userLinks : authLinks;
+  }
+
+  private setupUserDataListener(): void {
+    this.authService.userData.subscribe({
+      next: (userData) => {
+        this.isLoggedIn = !!userData;
+        if (this.isLoggedIn) {
+          this.loadCartData();
+        }
+      },
+    });
+  }
+
+  private setupCartCountListener(): void {
+    this.cartService.cartCount.subscribe({
+      next: (cartCount) => {
+        this.cartCount = cartCount;
+      },
+    });
+  }
+
+  private loadCartData(): void {
+    this.cartService.getLoggedUserCart().subscribe({
+      next: (res) => {
+        this.cartService.cartCount.next(res.numOfCartItems);
+      },
+      error: (err) => {
+        console.error('Error loading bag data:', err);
+      },
+    });
   }
 }

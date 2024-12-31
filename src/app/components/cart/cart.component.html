@@ -1,1 +1,71 @@
-<p>cart works!</p>
+@if (!isLoading && cart.data.products.length == 0) {
+<section
+  class="container text-center flex flex-col items-center justify-center gap-3 mt-10 max-w-96"
+>
+  <p class="font-semibold text-sm">Your shopping bag is empty</p>
+  <p class="text-xs">The items you add will be shown here</p>
+  <p-button
+    routerLink="/products"
+    class="w-full"
+    styleClass="w-full mt-2 !text-sm"
+    label="See what’s new"
+    size="large"
+  />
+</section>
+
+}
+
+<section class="container mt-4 mb-20">
+  @if (isLoading) {
+  <cart-loader />
+  } @if (cart && cart.data.products.length > 0) {
+  <h1 class="font-medium uppercase mb-4">
+    Shopping Bag ({{ cart.numOfCartItems }})
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div
+      class="col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-y-4"
+    >
+      @for (product of cart.data.products; track $index) {
+      <app-product-card
+        [isCartProduct]="true"
+        [product]="product.product"
+        [CartProductPrice]="product.price"
+        [CartProductCount]="product.count"
+        [removeProduct]="removeProductFromBag.bind(this)"
+        [removeIsLoading]="removeIsLoading"
+        [isClickedId]="isClickedId"
+      ></app-product-card>
+      }
+    </div>
+
+    <div class="sticky top-28 h-fit flex flex-col gap-2 text-sm max-md:mt-5">
+      <div class="flex justify-between items-center">
+        <p>Subtotal</p>
+        <p>EGP {{ cart.data.totalCartPrice }}</p>
+      </div>
+      <div class="flex justify-between items-center">
+        <p>Delivery</p>
+        <p>Free</p>
+      </div>
+      <div class="flex justify-between text-base font-semibold my-1">
+        <p>
+          Total
+          <span class="block text-xs font-normal">Taxes included</span>
+        </p>
+        <p>EGP {{ cart.data.totalCartPrice }}</p>
+      </div>
+      <p-button label="Checkout" class="w-full mb-6" styleClass="w-full" />
+      <div class="flex items-center gap-2">
+        <i class="pi pi-check"></i>
+        <p>Free home delivery for orders over EGP 4,000</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <i class="pi pi-check"></i>
+        <p>Free returns in 14 days</p>
+      </div>
+    </div>
+  </div>
+  }
+</section>
