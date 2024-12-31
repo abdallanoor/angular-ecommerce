@@ -36,7 +36,6 @@ export class AuthService {
       try {
         const decoded = jwtDecode(token);
         this.userData.next(decoded);
-        console.log(this.userData);
       } catch (error) {
         localStorage.clear();
       }

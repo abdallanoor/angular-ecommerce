@@ -86,7 +86,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
           this.loadRelatedProducts(this.productDetails.brand._id);
         },
         error: (error) => {
-          console.error('Failed to load product details:', error);
           this.toastService.error('Failed to load product');
           this.isLoading = false;
         },
@@ -100,8 +99,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         next: (response) => {
           this.relatedProducts = response.data;
         },
-        error: (error) => {
-          console.error('Failed to load related products:', error);
+        error: () => {
           this.toastService.error('Failed to load related products');
         },
       })

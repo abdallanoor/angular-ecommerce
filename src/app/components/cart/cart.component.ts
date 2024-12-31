@@ -33,7 +33,6 @@ export class CartComponent implements OnInit {
       next: (res) => {
         this.isLoading = false;
         this.cart = res;
-        console.log(res);
       },
       error: () => {
         this.isLoading = false;

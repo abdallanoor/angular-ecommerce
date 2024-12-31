@@ -60,9 +60,6 @@ export class NavbarComponent implements OnInit {
       next: (res) => {
         this.cartService.cartCount.next(res.numOfCartItems);
       },
-      error: (err) => {
-        console.error('Error loading bag data:', err);
-      },
     });
   }
 }
