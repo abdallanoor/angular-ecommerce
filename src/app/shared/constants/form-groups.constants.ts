@@ -1,30 +1,30 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { registerValidators } from '../validators/app.validators';
-import { confirmPassword } from '../utils/app.utils';
+import { authValidators } from '../validators/app.validators';
+import { confirmPassword } from '../utils/auth.utils';
 const formBuilder = new FormBuilder();
 
 export const registerForm: FormGroup = formBuilder.group(
   {
-    name: ['', registerValidators.name],
-    email: ['', registerValidators.email],
-    password: ['', registerValidators.password],
-    rePassword: ['', registerValidators.rePassword],
+    name: ['', authValidators.name],
+    email: ['', authValidators.email],
+    password: ['', authValidators.password],
+    rePassword: ['', authValidators.rePassword],
   },
   { validators: confirmPassword }
 );
 
 export const loginForm: FormGroup = formBuilder.group({
-  email: ['ecommerce.angular@gmail.com', registerValidators.email],
-  password: ['11111111', registerValidators.password],
+  email: ['ecommerce.angular@gmail.com', authValidators.email],
+  password: ['11111111', authValidators.password],
 });
 
 export const sendEmailForm: FormGroup = formBuilder.group({
-  email: ['', registerValidators.email],
+  email: ['', authValidators.email],
 });
 export const verifyCodeForm: FormGroup = formBuilder.group({
-  resetCode: ['', registerValidators.resetCode],
+  resetCode: ['', authValidators.resetCode],
 });
 export const resetPasswordForm: FormGroup = formBuilder.group({
-  email: ['', registerValidators.email],
-  newPassword: ['', registerValidators.password],
+  email: ['', authValidators.email],
+  newPassword: ['', authValidators.password],
 });
