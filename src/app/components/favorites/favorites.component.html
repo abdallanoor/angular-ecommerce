@@ -17,7 +17,9 @@
   @if (isLoading) {
   <favorites-loader />
   } @if (favorites && favorites.data.length > 0) {
-  <h1 class="font-medium uppercase mb-1">My favorites</h1>
+  <h1 class="font-medium uppercase mb-1">
+    My favorites ({{ favorites.count }})
+  </h1>
   <p class="text-sm mb-4">These are the items you liked the most</p>
   <div
     class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 gap-y-6 my-4"
