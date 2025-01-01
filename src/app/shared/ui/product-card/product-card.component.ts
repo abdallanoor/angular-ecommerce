@@ -2,12 +2,12 @@ import { Component, inject, Input } from '@angular/core';
 import { Product } from '../../../core/interfaces/product';
 import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { CartService } from '../../../core/services/cart.service';
 import { ToastService } from '../../../core/services/toast.service';
-import { addToBag } from '../../utils/cart.utils';
+import { addProductToBag } from '../../utils/bag.utils';
 import { NgClass } from '@angular/common';
 import { addToProductToFavorites } from '../../utils/favorites.utils';
 import { FavoritesService } from '../../../core/services/favorites.service';
+import { BagService } from '../../../core/services/bag.service';
 
 @Component({
   selector: 'app-product-card',
@@ -20,21 +20,21 @@ export class ProductCardComponent {
   @Input() removeIsLoading = false;
   @Input() isClickedId?: string;
   @Input() product!: Product;
-  @Input() CartProductCount: number = 0;
-  @Input() CartProductPrice: number = 0;
-  @Input() isCartProduct: boolean = false;
+  @Input() bagProductCount: number = 0;
+  @Input() bagProductPrice: number = 0;
+  @Input() isBagProduct: boolean = false;
   @Input() isFavoriteProduct: boolean = false;
 
-  cartService = inject(CartService);
+  bagService = inject(BagService);
   favoritesService = inject(FavoritesService);
   toastService = inject(ToastService);
 
-  addToCartIsLoading: boolean = false;
+  addToBagIsLoading: boolean = false;
   addToFavoritesIsLoading: boolean = false;
 
-  addToCart(id: string) {
-    addToBag(this.cartService, this.toastService, id, (loading) => {
-      this.addToCartIsLoading = loading;
+  addToBag(id: string) {
+    addProductToBag(this.bagService, this.toastService, id, (loading) => {
+      this.addToBagIsLoading = loading;
     });
   }
 

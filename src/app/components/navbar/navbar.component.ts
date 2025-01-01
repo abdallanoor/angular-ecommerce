@@ -9,7 +9,7 @@ import {
   mainLinks,
   userLinks,
 } from '../../shared/constants/navlinks.constant';
-import { CartService } from '../../core/services/cart.service';
+import { BagService } from '../../core/services/bag.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,16 +20,16 @@ import { CartService } from '../../core/services/cart.service';
 })
 export class NavbarComponent implements OnInit {
   private authService = inject(AuthService);
-  private cartService = inject(CartService);
+  private bagService = inject(BagService);
 
   visible: boolean = false;
   isLoggedIn: boolean = false;
-  cartCount: number = 0;
+  bagCount: number = 0;
   mainLinks: NavLink[] = mainLinks;
 
   ngOnInit(): void {
     this.setupUserDataListener();
-    this.setupCartCountListener();
+    this.setupBagCountListener();
   }
 
   get userNavLinks(): NavLink[] {
@@ -41,24 +41,24 @@ export class NavbarComponent implements OnInit {
       next: (userData) => {
         this.isLoggedIn = !!userData;
         if (this.isLoggedIn) {
-          this.loadCartData();
+          this.loadBagData();
         }
       },
     });
   }
 
-  private setupCartCountListener(): void {
-    this.cartService.cartCount.subscribe({
-      next: (cartCount) => {
-        this.cartCount = cartCount;
+  private setupBagCountListener(): void {
+    this.bagService.bagCount.subscribe({
+      next: (bagCount) => {
+        this.bagCount = bagCount;
       },
     });
   }
 
-  private loadCartData(): void {
-    this.cartService.getLoggedUserCart().subscribe({
+  private loadBagData(): void {
+    this.bagService.getLoggedUserBag().subscribe({
       next: (res) => {
-        this.cartService.cartCount.next(res.numOfCartItems);
+        this.bagService.bagCount.next(res.numOfCartItems);
       },
     });
   }

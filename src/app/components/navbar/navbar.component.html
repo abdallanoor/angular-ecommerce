@@ -62,7 +62,7 @@
             routerLinkActive="underline underline-offset-6"
           >
             {{ link.label }}
-            @if (link.label === 'Bag') { ({{ cartCount }}) }
+            @if (link.label === 'Bag') { ({{ bagCount }}) }
           </a>
         </li>
 
@@ -77,11 +77,11 @@
               [class]="link.icon"
               style="font-size: 1.2rem"
             ></i>
-            @if (link.path === 'cart') {
+            @if (link.label === 'Bag') {
             <span
               class="absolute text-[8px] font-semibold top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/4 leading-4"
             >
-              {{ cartCount }}
+              {{ bagCount }}
             </span>
             }
           </a>

@@ -3,7 +3,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ProductCardLoader } from './product-card-loader.component';
 
 @Component({
-  selector: 'cart-loader',
+  selector: 'bag-loader',
   standalone: true,
   imports: [SkeletonModule, ProductCardLoader],
   template: ` <div class="">
@@ -35,4 +35,4 @@ import { ProductCardLoader } from './product-card-loader.component';
     </div>
   </div>`,
 })
-export class CartLoader {}
+export class BagLoader {}

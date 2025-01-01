@@ -1,38 +1,38 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../../shared/ui/product-card/product-card.component';
 import { ButtonModule } from 'primeng/button';
-import { Cart } from '../../core/interfaces/cart';
-import { CartService } from '../../core/services/cart.service';
 import { ToastService } from '../../core/services/toast.service';
-import { CartLoader } from '../../shared/ui/skeleton-loaders/cart-loader.component';
 import { RouterLink } from '@angular/router';
+import { BagLoader } from '../../shared/ui/skeleton-loaders/bag-loader.component';
+import { Bag } from '../../core/interfaces/bag';
+import { BagService } from '../../core/services/bag.service';
 
 @Component({
-  selector: 'app-cart',
+  selector: 'app-bag',
   standalone: true,
-  imports: [ProductCardComponent, ButtonModule, CartLoader, RouterLink],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css',
+  imports: [ProductCardComponent, ButtonModule, RouterLink, BagLoader],
+  templateUrl: './bag.component.html',
+  styleUrl: './bag.component.css',
 })
-export class CartComponent implements OnInit {
-  private cartService = inject(CartService);
+export class BagComponent implements OnInit {
+  private bagService = inject(BagService);
   private toast = inject(ToastService);
 
-  cart!: Cart;
+  bag!: Bag;
   isLoading: boolean = false;
   removeIsLoading: boolean = false;
   isClickedId!: string;
 
   ngOnInit(): void {
-    this.getCart();
+    this.getBag();
   }
 
-  getCart() {
+  getBag() {
     this.isLoading = true;
-    this.cartService.getLoggedUserCart().subscribe({
+    this.bagService.getLoggedUserBag().subscribe({
       next: (res) => {
         this.isLoading = false;
-        this.cart = res;
+        this.bag = res;
       },
       error: () => {
         this.isLoading = false;
@@ -44,12 +44,12 @@ export class CartComponent implements OnInit {
   removeProductFromBag(id: string) {
     this.removeIsLoading = true;
     this.isClickedId = id;
-    this.cartService.removeProductFromCart(id).subscribe({
+    this.bagService.removeProductFromBag(id).subscribe({
       next: (res) => {
         this.removeIsLoading = false;
-        this.cart = res;
+        this.bag = res;
         this.toast.success('Product removed');
-        this.cartService.cartCount.next(res.numOfCartItems);
+        this.bagService.bagCount.next(res.numOfCartItems);
       },
       error: () => {
         this.removeIsLoading = false;

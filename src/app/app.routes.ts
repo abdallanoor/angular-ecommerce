@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { CartComponent } from './components/cart/cart.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -11,6 +10,7 @@ import { authGuard } from './core/guards/auth.guard';
 import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { BagComponent } from './components/bag/bag.component';
 
 export const routes: Routes = [
   {
@@ -32,7 +32,7 @@ export const routes: Routes = [
     canActivate: [isLoggedInGuard],
   },
 
-  { path: '', component: HomeComponent, title: 'Home' },
+  { path: '', component: HomeComponent, title: 'Angular E-commerce' },
   { path: 'products', component: ProductsComponent, title: 'Products' },
   {
     path: 'products-details/:id',
@@ -47,8 +47,8 @@ export const routes: Routes = [
   },
   {
     path: 'cart',
-    component: CartComponent,
-    title: 'Cart',
+    component: BagComponent,
+    title: 'Shopping bag',
     canActivate: [authGuard],
   },
   {

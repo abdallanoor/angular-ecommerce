@@ -1,18 +1,18 @@
-import { CartService } from '../../core/services/cart.service';
+import { BagService } from '../../core/services/bag.service';
 import { ToastService } from '../../core/services/toast.service';
 
-export function addToBag(
-  cartService: CartService,
+export function addProductToBag(
+  bagService: BagService,
   toastService: ToastService,
   productId: string,
   setLoading: (loading: boolean) => void
 ): void {
   setLoading(true);
-  cartService.addProductToCart(productId).subscribe({
+  bagService.addProductToBag(productId).subscribe({
     next: (res) => {
       setLoading(false);
       toastService.success('Product added to bag');
-      cartService.cartCount.next(res.numOfCartItems);
+      bagService.bagCount.next(res.numOfCartItems);
     },
     error: (err) => {
       setLoading(false);

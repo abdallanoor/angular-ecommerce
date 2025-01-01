@@ -1,6 +1,6 @@
 <div
   class="relative grid grid-cols-1 gap-1 animate-fadein"
-  [ngClass]="{ 'grid-cols-2 md:grid-cols-1 gap-2 md:gap-1': isCartProduct }"
+  [ngClass]="{ 'grid-cols-2 md:grid-cols-1 gap-2 md:gap-1': isBagProduct }"
 >
   <!-- Product Image -->
   <a [routerLink]="'/products-details/' + product._id" class="aspect-[5/7]">
@@ -16,11 +16,11 @@
   <!-- Product Details -->
   <div
     class="text-xs w-full sm:text-sm font-medium"
-    [ngClass]="{ 'max-md:text-sm': isCartProduct }"
+    [ngClass]="{ 'max-md:text-sm': isBagProduct }"
   >
     <div
       class="flex justify-between"
-      [ngClass]="{ 'max-md:flex-col-reverse max-md:gap-4': isCartProduct }"
+      [ngClass]="{ 'max-md:flex-col-reverse max-md:gap-4': isBagProduct }"
     >
       <!-- Product Title and Price -->
       <div class="pb-2 md:p-1 md:pt-0">
@@ -32,16 +32,16 @@
           {{ product.title.split(" ").slice(0, 3).join(" ") }}
         </a>
 
-        @if (isCartProduct) {
-        <p class="font-bold">EGP {{ CartProductPrice }}</p>
-        <p class="mt-4 md:mt-1">Qty: {{ CartProductCount }}</p>
+        @if (isBagProduct) {
+        <p class="font-bold">EGP {{ bagProductPrice }}</p>
+        <p class="mt-4 md:mt-1">Qty: {{ bagProductCount }}</p>
         } @else {
         <p class="font-bold">EGP {{ product.price }}</p>
         }
       </div>
 
       <!-- Action Buttons -->
-      <div [ngClass]="{ 'flex gap-1 ml-auto': isCartProduct }">
+      <div [ngClass]="{ 'flex gap-1 ml-auto': isBagProduct }">
         @if (isFavoriteProduct && removeProduct) {
         <p-button
           icon="pi pi-heart-fill"
@@ -60,7 +60,7 @@
           [loading]="addToFavoritesIsLoading"
           (onClick)="addToFavorites(product._id)"
         />
-        } @if (isCartProduct && removeProduct) {
+        } @if (isBagProduct && removeProduct) {
         <p-button
           icon="pi pi-trash"
           class="max-md:mr-12 max-md:mt-[2px]"
@@ -70,14 +70,14 @@
           (onClick)="removeProduct(product._id)"
         />
         }
-        <!-- Add to Cart Button -->
-        @if (!isCartProduct) {
+        <!-- Add to Bag Button -->
+        @if (!isBagProduct) {
         <p-button
           icon="pi pi-shopping-bag"
           [rounded]="true"
           [text]="true"
-          [loading]="addToCartIsLoading"
-          (onClick)="addToCart(product._id)"
+          [loading]="addToBagIsLoading"
+          (onClick)="addToBag(product._id)"
         />
         }
       </div>

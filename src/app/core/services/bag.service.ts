@@ -6,21 +6,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class CartService {
+export class BagService {
   private httpCLient = inject(HttpClient);
 
-  private cartBaseUrl = 'api/v1/cart';
+  private bagBaseUrl = 'api/v1/cart';
   get headers() {
     return {
       token: localStorage.getItem('token') || '',
     };
   }
 
-  cartCount: BehaviorSubject<number> = new BehaviorSubject(0);
+  bagCount: BehaviorSubject<number> = new BehaviorSubject(0);
 
-  addProductToCart = (productId: string): Observable<any> => {
+  addProductToBag = (productId: string): Observable<any> => {
     return this.httpCLient.post(
-      baseUrl + this.cartBaseUrl,
+      baseUrl + this.bagBaseUrl,
       {
         productId,
       },
@@ -30,9 +30,9 @@ export class CartService {
     );
   };
 
-  getLoggedUserCart = (): Observable<any> => {
+  getLoggedUserBag = (): Observable<any> => {
     return this.httpCLient.get(
-      baseUrl + this.cartBaseUrl,
+      baseUrl + this.bagBaseUrl,
 
       {
         headers: this.headers,
@@ -40,12 +40,9 @@ export class CartService {
     );
   };
 
-  removeProductFromCart = (productId: string): Observable<any> => {
-    return this.httpCLient.delete(
-      `${baseUrl}${this.cartBaseUrl}/${productId}`,
-      {
-        headers: this.headers,
-      }
-    );
+  removeProductFromBag = (productId: string): Observable<any> => {
+    return this.httpCLient.delete(`${baseUrl}${this.bagBaseUrl}/${productId}`, {
+      headers: this.headers,
+    });
   };
 }

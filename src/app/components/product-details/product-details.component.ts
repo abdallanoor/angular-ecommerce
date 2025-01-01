@@ -14,10 +14,10 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ProductCardComponent } from '../../shared/ui/product-card/product-card.component';
 import { ProductDetailsLoader } from '../../shared/ui/skeleton-loaders/product-details-loader.component';
 import { paymentFeatures } from '../../shared/constants/products.constants';
-import { CartService } from '../../core/services/cart.service';
-import { addToBag } from '../../shared/utils/cart.utils';
+import { addProductToBag } from '../../shared/utils/bag.utils';
 import { addToProductToFavorites } from '../../shared/utils/favorites.utils';
 import { FavoritesService } from '../../core/services/favorites.service';
+import { BagService } from '../../core/services/bag.service';
 
 @Component({
   selector: 'app-product-details',
@@ -37,7 +37,7 @@ import { FavoritesService } from '../../core/services/favorites.service';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   private activatedRoute = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
-  private cartService = inject(CartService);
+  private bagService = inject(BagService);
   private favoritesService = inject(FavoritesService);
   private toastService = inject(ToastService);
   private titleService = inject(Title);
@@ -45,7 +45,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
 
   isLoading: boolean = false;
-  addToCartIsLoading: boolean = false;
+  addToBagIsLoading: boolean = false;
   addToFavoritesIsLoading: boolean = false;
   productDetails!: Product;
   relatedProducts: Product[] = [];
@@ -106,9 +106,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     );
   }
 
-  addToCart(id: string) {
-    addToBag(this.cartService, this.toastService, id, (loading) => {
-      this.addToCartIsLoading = loading;
+  addToBag(id: string) {
+    addProductToBag(this.bagService, this.toastService, id, (loading) => {
+      this.addToBagIsLoading = loading;
     });
   }
 
