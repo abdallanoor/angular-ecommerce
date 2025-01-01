@@ -54,7 +54,7 @@
         } @else {
         <p-button
           icon="pi pi-heart"
-          class="absolute top-[2px] right-[2px] max-md:right-12"
+          class="absolute top-[2px] right-[2px]"
           [rounded]="true"
           [text]="true"
           [loading]="addToFavoritesIsLoading"
@@ -63,13 +63,15 @@
         } @if (isCartProduct && removeProduct) {
         <p-button
           icon="pi pi-trash"
-          class="max-md:mt-[2px]"
+          class="max-md:mr-12 max-md:mt-[2px]"
           [rounded]="true"
           [text]="true"
           [loading]="removeIsLoading && isClickedId === product._id"
           (onClick)="removeProduct(product._id)"
         />
-        } @if (!isCartProduct) {
+        }
+        <!-- Add to Cart Button -->
+        @if (!isCartProduct) {
         <p-button
           icon="pi pi-shopping-bag"
           [rounded]="true"
