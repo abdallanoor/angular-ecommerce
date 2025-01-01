@@ -8,9 +8,9 @@ import { ProductCardLoader } from './product-card-loader.component';
   imports: [SkeletonModule, ProductCardLoader],
   template: ` <div class="">
     <p-skeleton width="10rem" height="1.5rem" styleClass="mb-4" />
-    <div class="h-full grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="h-full grid grid-cols-1 md:grid-cols-3 md:gap-4">
       <div
-        class="col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-y-4"
+        class="col-span-2 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-y-4"
       >
         <product-card-loader />
         <product-card-loader />
