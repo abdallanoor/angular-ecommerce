@@ -11,8 +11,10 @@ export class FavoritesService {
 
   private FavoritesBaseUrl = 'api/v1/wishlist';
   private get headers() {
+    const token =
+      typeof window !== 'undefined' && localStorage.getItem('token');
     return {
-      token: localStorage.getItem('token') || '',
+      token: token || '',
     };
   }
 

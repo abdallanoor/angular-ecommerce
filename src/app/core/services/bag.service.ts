@@ -10,9 +10,11 @@ export class BagService {
   private httpCLient = inject(HttpClient);
 
   private bagBaseUrl = 'api/v1/cart';
-  get headers() {
+  private get headers() {
+    const token =
+      typeof window !== 'undefined' && localStorage.getItem('token');
     return {
-      token: localStorage.getItem('token') || '',
+      token: token || '',
     };
   }
 
