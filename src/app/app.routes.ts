@@ -11,6 +11,7 @@ import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BagComponent } from './components/bag/bag.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 export const routes: Routes = [
   {
@@ -49,6 +50,12 @@ export const routes: Routes = [
     path: 'cart',
     component: BagComponent,
     title: 'Shopping bag',
+    canActivate: [authGuard],
+  },
+  {
+    path: 'checkout/:id',
+    component: CheckoutComponent,
+    title: 'Checkout',
     canActivate: [authGuard],
   },
   {

@@ -28,3 +28,8 @@ export const resetPasswordForm: FormGroup = formBuilder.group({
   email: ['', authValidators.email],
   newPassword: ['', authValidators.password],
 });
+export const shippingAddressForm: FormGroup = formBuilder.group({
+  city: [''],
+  phone: [''],
+  details: [''],
+});

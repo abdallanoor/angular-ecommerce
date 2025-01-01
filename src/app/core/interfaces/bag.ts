@@ -3,6 +3,7 @@ import { Product } from './product';
 export interface Bag {
   numOfCartItems: number;
   data: Data;
+  cartId: string;
 }
 
 interface Data {

@@ -22,3 +22,8 @@ export const resetPasswordInputs: FormField[] = [
   { name: 'email', label: 'Email', type: 'email' },
   { name: 'newPassword', label: 'New password', type: 'password' },
 ];
+export const shippingAddressInputs: FormField[] = [
+  { name: 'city', label: 'City', type: 'text' },
+  { name: 'phone', label: 'Phone', type: 'text' },
+  { name: 'details', label: 'Details', type: 'text' },
+];

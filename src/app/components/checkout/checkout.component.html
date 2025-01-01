@@ -1,0 +1,51 @@
+<div class="container flex justify-center items-center mt-6 mx-auto">
+  <div class="w-96">
+    <h2 class="text-xl font-semibold">Checkout</h2>
+    <form class="flex flex-col gap-4" [formGroup]="form" (ngSubmit)="submit()">
+      <p>Add your information</p>
+      @for (input of inputs; track $index) {
+      <div class="flex flex-col gap-1">
+        <p-floatlabel variant="in" class="text-sm">
+          <input
+            pInputText
+            class="w-full"
+            [id]="input.name"
+            [type]="input.type"
+            autocomplete="on"
+            [formControlName]="input.name"
+          />
+          <label [for]="input.name">{{ input.label }}</label>
+        </p-floatlabel>
+        <app-form-field-error-message
+          [form]="form"
+          [controlName]="input.name"
+        />
+      </div>
+      }
+
+      <div class="flex flex-col gap-2">
+        <p-button
+          label="Online payment"
+          icon="pi pi-credit-card"
+          size="large"
+          styleClass="w-full !text-base"
+          class="w-full"
+          type="submit"
+          [loading]="isOnlinePaymentLoading"
+          (onClick)="payMethod = 'onlinePayment'"
+        />
+        <p-button
+          label="Cash on Delivery"
+          icon="pi pi-truck"
+          size="large"
+          styleClass="w-full !text-base"
+          class="w-full"
+          [outlined]="true"
+          type="submit"
+          [loading]="isCashPaymentLoading"
+          (onClick)="payMethod = 'cashOnDelivery'"
+        />
+      </div>
+    </form>
+  </div>
+</div>
