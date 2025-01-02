@@ -1,15 +1,15 @@
 import { Product } from './product';
 
 export interface Bag {
-  numOfCartItems: number;
+  numOfCartItems?: number;
   data: Data;
-  cartId: string;
+  cartId?: string;
 }
 
 interface Data {
-  _id: string;
+  _id?: string;
   products: Products[];
-  totalCartPrice: number;
+  totalCartPrice?: number;
 }
 
 interface Products {

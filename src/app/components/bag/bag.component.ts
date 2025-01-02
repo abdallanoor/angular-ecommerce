@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ProductCardComponent } from '../../shared/ui/product-card/product-card.component';
 import { ButtonModule } from 'primeng/button';
 import { ToastService } from '../../core/services/toast.service';
@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import { BagLoader } from '../../shared/ui/skeleton-loaders/bag-loader.component';
 import { Bag } from '../../core/interfaces/bag';
 import { BagService } from '../../core/services/bag.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-bag',
@@ -17,18 +18,24 @@ import { BagService } from '../../core/services/bag.service';
 export class BagComponent implements OnInit {
   private bagService = inject(BagService);
   private toast = inject(ToastService);
+  private platform = inject(PLATFORM_ID);
 
-  bag!: Bag;
-  isLoading: boolean = false;
+  bag: Bag = {
+    data: {
+      products: [],
+    },
+  };
+  isLoading: boolean = true;
   removeIsLoading: boolean = false;
   isClickedId!: string;
 
   ngOnInit(): void {
-    this.getBag();
+    if (isPlatformBrowser(this.platform)) {
+      this.getBag();
+    }
   }
 
   getBag() {
-    this.isLoading = true;
     this.bagService.getLoggedUserBag().subscribe({
       next: (res) => {
         this.isLoading = false;
