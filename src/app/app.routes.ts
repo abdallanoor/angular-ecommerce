@@ -33,7 +33,7 @@ export const routes: Routes = [
     canActivate: [isLoggedInGuard],
   },
 
-  { path: '', component: HomeComponent, title: 'Angular E-commerce' },
+  { path: '', component: HomeComponent, title: 'E-commerce' },
   { path: 'products', component: ProductsComponent, title: 'Products' },
   {
     path: 'products-details/:id',
