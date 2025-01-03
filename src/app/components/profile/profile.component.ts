@@ -24,7 +24,7 @@ export class ProfileComponent {
   }
 
   profileLinks = [
-    { path: '/orders', label: 'My orders' },
+    { path: '/allorders', label: 'My orders' },
     { path: '/personalInfo', label: 'My details' },
     { path: '/address', label: 'My address' },
     { path: '/favorites', label: 'My favorites' },

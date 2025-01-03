@@ -6,7 +6,7 @@ import { appUrl, baseUrl } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class CheckoutService {
+export class OrdersService {
   private httpCLient = inject(HttpClient);
   private checkoutBaseUrl = 'api/v1/orders';
   private get headers() {
@@ -41,6 +41,12 @@ export class CheckoutService {
       {
         headers: this.headers,
       }
+    );
+  };
+
+  getLoggedUserOrders = (userID: string): Observable<any> => {
+    return this.httpCLient.get(
+      `${baseUrl}${this.checkoutBaseUrl}/user/${userID}`
     );
   };
 }

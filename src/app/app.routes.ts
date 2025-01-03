@@ -12,6 +12,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BagComponent } from './components/bag/bag.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AllOrdersComponent } from './components/all-orders/all-orders.component';
 
 export const routes: Routes = [
   {
@@ -62,6 +63,12 @@ export const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     title: 'My Accound',
+    canActivate: [authGuard],
+  },
+  {
+    path: 'allorders',
+    component: AllOrdersComponent,
+    title: 'All orders',
     canActivate: [authGuard],
   },
 

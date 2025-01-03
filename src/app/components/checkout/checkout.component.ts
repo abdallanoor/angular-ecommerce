@@ -13,7 +13,7 @@ import { ToastService } from '../../core/services/toast.service';
 import { FormField } from '../../core/interfaces/auth';
 import { shippingAddressForm } from '../../shared/constants/form-groups.constants';
 import { shippingAddressInputs } from '../../shared/constants/form-inputs.constants';
-import { CheckoutService } from '../../core/services/checkout.service';
+import { OrdersService } from '../../core/services/orders.service';
 import { BagService } from '../../core/services/bag.service';
 
 @Component({
@@ -32,7 +32,7 @@ import { BagService } from '../../core/services/bag.service';
 })
 export class CheckoutComponent {
   private activatedRoute = inject(ActivatedRoute);
-  private checkoutService = inject(CheckoutService);
+  private ordersService = inject(OrdersService);
   private bagService = inject(BagService);
   private router = inject(Router);
   private toastService = inject(ToastService);
@@ -58,7 +58,7 @@ export class CheckoutComponent {
 
   private handleOnlinePayment(): void {
     this.isOnlinePaymentLoading = true;
-    this.checkoutService.paymentOnline(this.bagId, this.form.value).subscribe({
+    this.ordersService.paymentOnline(this.bagId, this.form.value).subscribe({
       next: (res) => {
         window.location.href = res.session.url;
         this.isOnlinePaymentLoading = false;
@@ -73,7 +73,7 @@ export class CheckoutComponent {
 
   private handleCashOnDelivery(): void {
     this.isCashPaymentLoading = true;
-    this.checkoutService.cashOnDelivery(this.bagId, this.form.value).subscribe({
+    this.ordersService.cashOnDelivery(this.bagId, this.form.value).subscribe({
       next: () => {
         this.isCashPaymentLoading = false;
         this.toastService.success('Order successful');
