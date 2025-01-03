@@ -9,9 +9,10 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root',
 })
 export class AuthService {
-  httpClient = inject(HttpClient);
-  platform = inject(PLATFORM_ID);
+  private httpClient = inject(HttpClient);
+  private platform = inject(PLATFORM_ID);
 
+  private authBaseUrl = 'api/v1/auth';
   userData: BehaviorSubject<any> = new BehaviorSubject(null);
 
   constructor() {
@@ -23,13 +24,33 @@ export class AuthService {
   }
 
   register = (user: any): Observable<any> => {
-    return this.httpClient.post(baseUrl + 'api/v1/auth/signup', user);
+    return this.httpClient.post(`${baseUrl}${this.authBaseUrl}/signup`, user);
   };
 
   login = (user: any): Observable<any> => {
-    return this.httpClient.post(baseUrl + 'api/v1/auth/signin', user);
+    return this.httpClient.post(`${baseUrl}${this.authBaseUrl}/signin`, user);
   };
 
+  forgotPassword = (email: any): Observable<any> => {
+    return this.httpClient.post(
+      `${baseUrl}${this.authBaseUrl}/forgotPasswords`,
+      email
+    );
+  };
+
+  verifyResetCode = (code: any): Observable<any> => {
+    return this.httpClient.post(
+      `${baseUrl}${this.authBaseUrl}/verifyResetCode`,
+      code
+    );
+  };
+
+  resetPassword = (newPassword: any): Observable<any> => {
+    return this.httpClient.put(
+      `${baseUrl}${this.authBaseUrl}/resetPassword`,
+      newPassword
+    );
+  };
   saveUserData = () => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -40,20 +61,5 @@ export class AuthService {
         localStorage.clear();
       }
     }
-  };
-
-  forgotPassword = (email: any): Observable<any> => {
-    return this.httpClient.post(baseUrl + 'api/v1/auth/forgotPasswords', email);
-  };
-
-  verifyResetCode = (code: any): Observable<any> => {
-    return this.httpClient.post(baseUrl + 'api/v1/auth/verifyResetCode', code);
-  };
-
-  resetPassword = (newPassword: any): Observable<any> => {
-    return this.httpClient.put(
-      baseUrl + 'api/v1/auth/resetPassword',
-      newPassword
-    );
   };
 }
