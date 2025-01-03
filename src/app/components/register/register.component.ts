@@ -31,7 +31,7 @@ import { FormField } from '../../core/interfaces/auth';
 export class RegisterComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
-  private toast = inject(ToastService);
+  private toastService = inject(ToastService);
 
   isLoading = false;
 
@@ -55,12 +55,12 @@ export class RegisterComponent {
     this.isLoading = false;
     if (message === 'success') {
       this.router.navigate(['/login']);
-      this.toast.success('Account created successfully');
+      this.toastService.success('Account created successfully');
     }
   }
 
   private handleError(err: HttpErrorResponse): void {
     this.isLoading = false;
-    this.toast.error(err.error.message);
+    this.toastService.error(err.error.message);
   }
 }

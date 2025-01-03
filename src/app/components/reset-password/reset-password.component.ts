@@ -47,7 +47,7 @@ type Steps = 1 | 2 | 3;
 export class ResetPasswordComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
-  private toast = inject(ToastService);
+  private toastService = inject(ToastService);
   private platform = inject(PLATFORM_ID);
 
   isLoading = false;
@@ -118,7 +118,7 @@ export class ResetPasswordComponent implements OnInit {
 
     const handleError = (err: HttpErrorResponse) => {
       this.isLoading = false;
-      this.toast.error(err.error.message);
+      this.toastService.error(err.error.message);
     };
 
     const handleSuccess = (message: string, nextStep?: Steps) => {
@@ -132,7 +132,7 @@ export class ResetPasswordComponent implements OnInit {
           resetPasswordForm.get('email')?.setValue(email);
         }
       }
-      this.toast.success(message);
+      this.toastService.success(message);
     };
 
     switch (this.steps) {
@@ -172,7 +172,7 @@ export class ResetPasswordComponent implements OnInit {
 
       default:
         this.isLoading = false;
-        this.toast.error('Unexpected error occurred');
+        this.toastService.error('Unexpected error occurred');
     }
   }
 

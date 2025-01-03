@@ -35,7 +35,7 @@ import { loginInputs } from '../../shared/constants/form-inputs.constants';
 export class LoginComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
-  private toast = inject(ToastService);
+  private toastService = inject(ToastService);
 
   isLoading = false;
   form: FormGroup = loginForm;
@@ -58,7 +58,7 @@ export class LoginComponent {
     this.isLoading = false;
     if (res.message === 'success') {
       this.router.navigate(['/']);
-      this.toast.success(`Welcome back`);
+      this.toastService.success(`Welcome back`);
       localStorage.setItem('token', res.token);
       this.authService.saveUserData();
     }
@@ -66,6 +66,6 @@ export class LoginComponent {
 
   private handleError(err: HttpErrorResponse): void {
     this.isLoading = false;
-    this.toast.error(err.error.message);
+    this.toastService.error(err.error.message);
   }
 }

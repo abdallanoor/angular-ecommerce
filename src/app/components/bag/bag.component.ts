@@ -17,7 +17,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class BagComponent implements OnInit {
   private bagService = inject(BagService);
-  private toast = inject(ToastService);
+  private toastService = inject(ToastService);
   private platform = inject(PLATFORM_ID);
 
   bag: Bag = {
@@ -43,7 +43,7 @@ export class BagComponent implements OnInit {
       },
       error: () => {
         this.isLoading = false;
-        this.toast.error('Failed to load Bag');
+        this.toastService.error('Failed to load Bag');
       },
     });
   }
@@ -55,12 +55,12 @@ export class BagComponent implements OnInit {
       next: (res) => {
         this.removeIsLoading = false;
         this.bag = res;
-        this.toast.success('Product removed');
+        this.toastService.success('Product removed');
         this.bagService.bagCount.next(res.numOfCartItems);
       },
       error: () => {
         this.removeIsLoading = false;
-        this.toast.error('Failed to remove product');
+        this.toastService.error('Failed to remove product');
       },
     });
   }

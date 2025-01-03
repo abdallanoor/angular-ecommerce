@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   productSkeletons = Array(10);
 
   private productsService = inject(ProductsService);
-  private toast = inject(ToastService);
+  private toastService = inject(ToastService);
   private subscription = new Subscription();
 
   ngOnInit(): void {
@@ -44,7 +44,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
           this.products = res.data;
         },
         error: () => {
-          this.toast.error('Failed to load products');
+          this.toastService.error('Failed to load products');
         },
         complete: () => {
           this.isLoading = false;

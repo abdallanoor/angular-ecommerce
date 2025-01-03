@@ -13,7 +13,7 @@ import { ToastService } from '../../core/services/toast.service';
 export class ProfileComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
-  private toast = inject(ToastService);
+  private toastService = inject(ToastService);
 
   userName: string = '';
 
@@ -33,6 +33,6 @@ export class ProfileComponent {
     localStorage.removeItem('token');
     this.authService.userData.next(null);
     this.router.navigate(['/']);
-    this.toast.success('Logged out successfully');
+    this.toastService.success('Logged out successfully');
   }
 }
