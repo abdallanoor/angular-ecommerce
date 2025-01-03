@@ -27,4 +27,16 @@ export class UserService {
       }
     );
   };
+  getLoggedUserData = (userId: any): Observable<any> => {
+    return this.httpClient.get(`${baseUrl}/${this.usersBaseUrl}/${userId}`);
+  };
+  updateLoggedUserData = (userData: any): Observable<any> => {
+    return this.httpClient.put(
+      `${baseUrl}/${this.usersBaseUrl}/updateMe`,
+      userData,
+      {
+        headers: this.headers,
+      }
+    );
+  };
 }

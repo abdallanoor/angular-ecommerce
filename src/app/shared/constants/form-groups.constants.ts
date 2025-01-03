@@ -41,3 +41,8 @@ export const changePasswordForm: FormGroup = formBuilder.group(
   },
   { validators: confirmPassword }
 );
+export const userDetailsForm: FormGroup = formBuilder.group({
+  name: ['', authValidators.name],
+  phone: [''],
+  email: [{ value: '', disabled: true }],
+});

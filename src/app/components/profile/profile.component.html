@@ -1,10 +1,6 @@
 <section class="container flex items-center justify-center mt-4">
   <div class="w-96 sm:w-80">
-    <!-- <h2 class="text-xl font-semibold mb-4">Your Account</h2> -->
-    <p class="text-3xl font-serif tracking-wide mb-4">
-      Hi
-      {{ userName }}
-    </p>
+    <p class="text-3xl font-serif tracking-wide mb-4">Hi {{ userName }}</p>
     <ul class="flex flex-col gap-2 font-semibold">
       @for (link of profileLinks; track $index) {
       <li>

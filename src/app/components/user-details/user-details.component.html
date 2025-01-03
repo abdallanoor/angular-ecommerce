@@ -1,0 +1,39 @@
+<div class="container flex justify-center items-center mt-6 mx-auto">
+  <div class="w-96">
+    <h2 class="text-xl font-semibold">My details</h2>
+    <p class="mb-4">Edit your account details</p>
+    @if (getDataIsLoading) {
+    <p-skeleton styleClass="mb-2" height="16rem" />
+    }@else {
+    <form class="flex flex-col gap-4" [formGroup]="form" (ngSubmit)="submit()">
+      @for (input of inputs; track $index) {
+      <div class="flex flex-col gap-1">
+        <p-floatlabel variant="in" class="text-sm">
+          <input
+            pInputText
+            class="w-full"
+            [id]="input.name"
+            [type]="input.type"
+            autocomplete="on"
+            [formControlName]="input.name"
+          />
+          <label [for]="input.name">{{ input.label }}</label>
+        </p-floatlabel>
+        <app-form-field-error-message
+          [form]="form"
+          [controlName]="input.name"
+        />
+      </div>
+      }
+      <p-button
+        [loading]="updateIsLoading"
+        label="Save"
+        type="submit"
+        size="large"
+        styleClass="w-full"
+        variant="outlined"
+      />
+    </form>
+    }
+  </div>
+</div>

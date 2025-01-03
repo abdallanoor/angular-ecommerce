@@ -2897,7 +2897,7 @@ export const MyPreset = definePreset(Nora, {
     inputtext: {
       root: {
         background: '{form.field.background}',
-        disabledBackground: '{form.field.disabled.background}',
+        disabledBackground: '{neutral.100}',
         filledBackground: '{form.field.filled.background}',
         filledHoverBackground: '{form.field.filled.hover.background}',
         filledFocusBackground: '{form.field.filled.focus.background}',

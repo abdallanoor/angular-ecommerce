@@ -32,3 +32,8 @@ export const changePasswordInputs: FormField[] = [
   { name: 'password', label: 'Password', type: 'password' },
   { name: 'rePassword', label: 'Confirm Password', type: 'password' },
 ];
+export const userDetailsInputs: FormField[] = [
+  { name: 'name', label: 'Name', type: 'text' },
+  { name: 'phone', label: 'Phone', type: 'tel' },
+  { name: 'email', label: 'Email', type: 'email' },
+];

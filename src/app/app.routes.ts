@@ -14,6 +14,7 @@ import { BagComponent } from './components/bag/bag.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AllOrdersComponent } from './components/all-orders/all-orders.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 export const routes: Routes = [
   {
@@ -70,6 +71,12 @@ export const routes: Routes = [
     path: 'allorders',
     component: AllOrdersComponent,
     title: 'All orders',
+    canActivate: [authGuard],
+  },
+  {
+    path: 'user-details',
+    component: UserDetailsComponent,
+    title: 'My details',
     canActivate: [authGuard],
   },
   {
