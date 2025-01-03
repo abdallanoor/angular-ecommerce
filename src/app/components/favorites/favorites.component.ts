@@ -12,7 +12,6 @@ import { isPlatformBrowser } from '@angular/common';
   standalone: true,
   imports: [ButtonModule, ProductCardComponent, FavoritesLoader],
   templateUrl: './favorites.component.html',
-  styleUrl: './favorites.component.css',
 })
 export class FavoritesComponent implements OnInit {
   private favoritesService = inject(FavoritesService);

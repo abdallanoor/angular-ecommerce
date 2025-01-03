@@ -8,7 +8,6 @@ import { ToastService } from '../../core/services/toast.service';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
   private authService = inject(AuthService);

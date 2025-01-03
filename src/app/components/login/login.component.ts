@@ -30,7 +30,6 @@ import { loginInputs } from '../../shared/constants/form-inputs.constants';
     FormFieldErrorMessageComponent,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   private authService = inject(AuthService);

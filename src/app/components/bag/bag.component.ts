@@ -13,7 +13,6 @@ import { isPlatformBrowser } from '@angular/common';
   standalone: true,
   imports: [ProductCardComponent, ButtonModule, RouterLink, BagLoader],
   templateUrl: './bag.component.html',
-  styleUrl: './bag.component.css',
 })
 export class BagComponent implements OnInit {
   private bagService = inject(BagService);

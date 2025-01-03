@@ -42,7 +42,6 @@ type Steps = 1 | 2 | 3;
     RouterLink,
   ],
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css'],
 })
 export class ResetPasswordComponent implements OnInit {
   private authService = inject(AuthService);
