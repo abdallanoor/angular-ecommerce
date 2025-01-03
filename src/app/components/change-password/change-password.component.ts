@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FloatLabel } from 'primeng/floatlabel';
 import { PasswordModule } from 'primeng/password';
 import { FormFieldErrorMessageComponent } from '../../shared/ui/form-field-error-message/form-field-error-message.component';
-import { AuthService } from '../../core/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastService } from '../../core/services/toast.service';
 import { changePasswordForm } from '../../shared/constants/form-groups.constants';
@@ -23,7 +22,6 @@ import { UserService } from '../../core/services/user.service';
     InputTextModule,
     FloatLabel,
     PasswordModule,
-    RouterLink,
     ReactiveFormsModule,
     FormFieldErrorMessageComponent,
   ],
@@ -32,7 +30,7 @@ import { UserService } from '../../core/services/user.service';
 export class ChangePasswordComponent {
   private userService = inject(UserService);
   private router = inject(Router);
-  private toast = inject(ToastService);
+  private toastService = inject(ToastService);
 
   isLoading = false;
 
@@ -55,13 +53,13 @@ export class ChangePasswordComponent {
 
   private handleSuccess(): void {
     this.isLoading = false;
-    this.toast.success('Password changed. Please login again');
+    this.toastService.success('Password changed. Please login again');
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 
   private handleError(err: HttpErrorResponse): void {
     this.isLoading = false;
-    this.toast.error(err.error.errors.msg);
+    this.toastService.error(err.error.errors.msg);
   }
 }
