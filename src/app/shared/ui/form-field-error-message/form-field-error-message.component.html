@@ -1,22 +1,27 @@
 @if (form.get(controlName)?.errors && form.get(controlName)?.touched) {
-<p-message severity="error" variant="simple" icon="pi pi-exclamation-circle" size="small">
-    @if (form.get(controlName)?.getError('required')) {
-    Complete this field to continue
-    }
-    @if (form.get(controlName)?.getError('minlength') && controlName === 'name') {
-    Name must have at-least 4 characters
-    }
-    @if (form.get(controlName)?.getError('minlength') && (controlName === 'password' || controlName === 'newPassword') )
-    {
-    Password must have at-least 8 characters
-    }
-    @if (form.get(controlName)?.getError('email')) {
-    Check your e-mail format (e.g. name&#64;email.com)
-    }
+<p-message
+  severity="error"
+  variant="simple"
+  icon="pi pi-exclamation-circle"
+  size="small"
+>
+  @if (form.get(controlName)?.getError('required')) { Complete this field to
+  continue } @if (form.get(controlName)?.getError('minlength') && controlName
+  === 'name') { Name must have at-least 4 characters } @if
+  (form.get(controlName)?.getError('minlength') && (controlName === 'password'
+  || controlName === 'newPassword') || controlName === "currentPassword" ) {
+  Password must have at-least 8 characters } @if
+  (form.get(controlName)?.getError('email')) { Check your e-mail format (e.g.
+  name&#64;email.com) }
 </p-message>
-}@else if (form.getError('mismatch') && form.get(controlName)?.touched && controlName === 'rePassword' )
-{
-<p-message severity="error" variant="simple" icon="pi pi-exclamation-circle" size="small">
-    Passwords do not match
+}@else if (form.getError('mismatch') && form.get(controlName)?.touched &&
+controlName === 'rePassword' ) {
+<p-message
+  severity="error"
+  variant="simple"
+  icon="pi pi-exclamation-circle"
+  size="small"
+>
+  Passwords do not match
 </p-message>
 }

@@ -25,8 +25,6 @@ export class ProfileComponent {
 
   profileLinks = [
     { path: '/allorders', label: 'My orders' },
-    { path: '/personalInfo', label: 'My details' },
-    { path: '/address', label: 'My address' },
     { path: '/favorites', label: 'My favorites' },
     { path: '/change-password', label: 'Change password' },
   ];

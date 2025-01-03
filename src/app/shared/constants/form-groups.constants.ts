@@ -33,3 +33,11 @@ export const shippingAddressForm: FormGroup = formBuilder.group({
   phone: [''],
   details: [''],
 });
+export const changePasswordForm: FormGroup = formBuilder.group(
+  {
+    currentPassword: ['', authValidators.password],
+    password: ['', authValidators.password],
+    rePassword: ['', authValidators.rePassword],
+  },
+  { validators: confirmPassword }
+);

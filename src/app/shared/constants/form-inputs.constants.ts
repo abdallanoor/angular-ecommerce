@@ -27,3 +27,8 @@ export const shippingAddressInputs: FormField[] = [
   { name: 'phone', label: 'Phone', type: 'text' },
   { name: 'details', label: 'Details', type: 'text' },
 ];
+export const changePasswordInputs: FormField[] = [
+  { name: 'currentPassword', label: 'Current', type: 'password' },
+  { name: 'password', label: 'Password', type: 'password' },
+  { name: 'rePassword', label: 'Confirm Password', type: 'password' },
+];
