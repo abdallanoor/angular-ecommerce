@@ -20,7 +20,7 @@ export class FavoritesService {
 
   addProductToFavorites = (productId: string): Observable<any> => {
     return this.httpCLient.post(
-      baseUrl + this.FavoritesBaseUrl,
+      `${baseUrl}/${this.FavoritesBaseUrl}`,
       {
         productId,
       },
@@ -31,18 +31,14 @@ export class FavoritesService {
   };
 
   getLoggedUserFavorites = (): Observable<any> => {
-    return this.httpCLient.get(
-      baseUrl + this.FavoritesBaseUrl,
-
-      {
-        headers: this.headers,
-      }
-    );
+    return this.httpCLient.get(`${baseUrl}/${this.FavoritesBaseUrl}`, {
+      headers: this.headers,
+    });
   };
 
   removeProductFromFavorites = (productId: string): Observable<any> => {
     return this.httpCLient.delete(
-      `${baseUrl}${this.FavoritesBaseUrl}/${productId}`,
+      `${baseUrl}/${this.FavoritesBaseUrl}/${productId}`,
       {
         headers: this.headers,
       }

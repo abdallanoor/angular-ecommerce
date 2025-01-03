@@ -20,7 +20,7 @@ export class UserService {
 
   changePassword = (newPassword: any): Observable<any> => {
     return this.httpClient.put(
-      `${baseUrl}${this.usersBaseUrl}/changeMyPassword`,
+      `${baseUrl}/${this.usersBaseUrl}/changeMyPassword`,
       newPassword,
       {
         headers: this.headers,

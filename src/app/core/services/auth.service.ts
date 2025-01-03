@@ -24,30 +24,30 @@ export class AuthService {
   }
 
   register = (user: any): Observable<any> => {
-    return this.httpClient.post(`${baseUrl}${this.authBaseUrl}/signup`, user);
+    return this.httpClient.post(`${baseUrl}/${this.authBaseUrl}/signup`, user);
   };
 
   login = (user: any): Observable<any> => {
-    return this.httpClient.post(`${baseUrl}${this.authBaseUrl}/signin`, user);
+    return this.httpClient.post(`${baseUrl}/${this.authBaseUrl}/signin`, user);
   };
 
   forgotPassword = (email: any): Observable<any> => {
     return this.httpClient.post(
-      `${baseUrl}${this.authBaseUrl}/forgotPasswords`,
+      `${baseUrl}/${this.authBaseUrl}/forgotPasswords`,
       email
     );
   };
 
   verifyResetCode = (code: any): Observable<any> => {
     return this.httpClient.post(
-      `${baseUrl}${this.authBaseUrl}/verifyResetCode`,
+      `${baseUrl}/${this.authBaseUrl}/verifyResetCode`,
       code
     );
   };
 
   resetPassword = (newPassword: any): Observable<any> => {
     return this.httpClient.put(
-      `${baseUrl}${this.authBaseUrl}/resetPassword`,
+      `${baseUrl}/${this.authBaseUrl}/resetPassword`,
       newPassword
     );
   };

@@ -19,7 +19,7 @@ export class OrdersService {
 
   paymentOnline = (bagId: string, shippingAddress: object): Observable<any> => {
     return this.httpCLient.post(
-      `${baseUrl}${this.checkoutBaseUrl}/checkout-session/${bagId}?url=${appUrl}`,
+      `${baseUrl}/${this.checkoutBaseUrl}/checkout-session/${bagId}?url=${appUrl}`,
       {
         shippingAddress,
       },
@@ -34,7 +34,7 @@ export class OrdersService {
     shippingAddress: object
   ): Observable<any> => {
     return this.httpCLient.post(
-      `${baseUrl}${this.checkoutBaseUrl}/${bagId}`,
+      `${baseUrl}/${this.checkoutBaseUrl}/${bagId}`,
       {
         shippingAddress,
       },
@@ -46,7 +46,7 @@ export class OrdersService {
 
   getLoggedUserOrders = (userID: string): Observable<any> => {
     return this.httpCLient.get(
-      `${baseUrl}${this.checkoutBaseUrl}/user/${userID}`
+      `${baseUrl}/${this.checkoutBaseUrl}/user/${userID}`
     );
   };
 }

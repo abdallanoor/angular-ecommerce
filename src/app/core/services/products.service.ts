@@ -7,19 +7,23 @@ import { baseUrl } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ProductsService {
-  httpCLient = inject(HttpClient);
+  private httpCLient = inject(HttpClient);
+
+  private productsBaseUrl = 'api/v1/products';
 
   getProducts(): Observable<any> {
     return this.httpCLient.get(
-      baseUrl + 'api/v1/products?category[in]=6439d5b90049ad0b52b90048'
+      `${baseUrl}/${this.productsBaseUrl}?category[in]=6439d5b90049ad0b52b90048`
     );
   }
 
   getSpecificProduct(id: string): Observable<any> {
-    return this.httpCLient.get(baseUrl + `api/v1/products/${id}`);
+    return this.httpCLient.get(`${baseUrl}/${this.productsBaseUrl}/${id}`);
   }
 
   getProductsByBrand(id: string): Observable<any> {
-    return this.httpCLient.get(baseUrl + `api/v1/products?brand=${id}`);
+    return this.httpCLient.get(
+      `${baseUrl}/${this.productsBaseUrl}/?brand=${id}`
+    );
   }
 }

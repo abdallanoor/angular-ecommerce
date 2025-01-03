@@ -22,7 +22,7 @@ export class BagService {
 
   addProductToBag = (productId: string): Observable<any> => {
     return this.httpCLient.post(
-      baseUrl + this.bagBaseUrl,
+      `${baseUrl}/${this.bagBaseUrl}`,
       {
         productId,
       },
@@ -33,18 +33,17 @@ export class BagService {
   };
 
   getLoggedUserBag = (): Observable<any> => {
-    return this.httpCLient.get(
-      baseUrl + this.bagBaseUrl,
+    return this.httpCLient.get(`${baseUrl}/${this.bagBaseUrl}`, {
+      headers: this.headers,
+    });
+  };
 
+  removeProductFromBag = (productId: string): Observable<any> => {
+    return this.httpCLient.delete(
+      `${baseUrl}/${this.bagBaseUrl}/${productId}`,
       {
         headers: this.headers,
       }
     );
-  };
-
-  removeProductFromBag = (productId: string): Observable<any> => {
-    return this.httpCLient.delete(`${baseUrl}${this.bagBaseUrl}/${productId}`, {
-      headers: this.headers,
-    });
   };
 }
