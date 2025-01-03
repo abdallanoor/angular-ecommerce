@@ -23,7 +23,6 @@ import { RouterLink } from '@angular/router';
     NgClass,
   ],
   templateUrl: './all-orders.component.html',
-  styleUrl: './all-orders.component.css',
   providers: [DatePipe],
 })
 export class AllOrdersComponent {
