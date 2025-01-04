@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { baseUrl } from '../../environments/environment';
+import { environment } from '../../environments/environment';
 import { jwtDecode } from 'jwt-decode';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -13,6 +13,8 @@ export class AuthService {
   private platform = inject(PLATFORM_ID);
 
   private authBaseUrl = 'api/v1/auth';
+  private baseUrl = environment.baseUrl;
+
   userData: BehaviorSubject<any> = new BehaviorSubject(null);
 
   constructor() {
@@ -24,30 +26,36 @@ export class AuthService {
   }
 
   register = (user: any): Observable<any> => {
-    return this.httpClient.post(`${baseUrl}/${this.authBaseUrl}/signup`, user);
+    return this.httpClient.post(
+      `${this.baseUrl}/${this.authBaseUrl}/signup`,
+      user
+    );
   };
 
   login = (user: any): Observable<any> => {
-    return this.httpClient.post(`${baseUrl}/${this.authBaseUrl}/signin`, user);
+    return this.httpClient.post(
+      `${this.baseUrl}/${this.authBaseUrl}/signin`,
+      user
+    );
   };
 
   forgotPassword = (email: any): Observable<any> => {
     return this.httpClient.post(
-      `${baseUrl}/${this.authBaseUrl}/forgotPasswords`,
+      `${this.baseUrl}/${this.authBaseUrl}/forgotPasswords`,
       email
     );
   };
 
   verifyResetCode = (code: any): Observable<any> => {
     return this.httpClient.post(
-      `${baseUrl}/${this.authBaseUrl}/verifyResetCode`,
+      `${this.baseUrl}/${this.authBaseUrl}/verifyResetCode`,
       code
     );
   };
 
   resetPassword = (newPassword: any): Observable<any> => {
     return this.httpClient.put(
-      `${baseUrl}/${this.authBaseUrl}/resetPassword`,
+      `${this.baseUrl}/${this.authBaseUrl}/resetPassword`,
       newPassword
     );
   };

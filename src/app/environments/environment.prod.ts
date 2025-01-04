@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   baseUrl: 'https://ecommerce.routemisr.com',
-  appUrl: 'http://localhost:4200',
+  appUrl: 'https://ecommerce-angular-project.vercel.app',
 };

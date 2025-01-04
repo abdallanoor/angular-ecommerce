@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { appUrl, baseUrl } from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +9,8 @@ import { appUrl, baseUrl } from '../../environments/environment';
 export class OrdersService {
   private httpCLient = inject(HttpClient);
   private checkoutBaseUrl = 'api/v1/orders';
+  private baseUrl = environment.baseUrl;
+  private appUrl = environment.appUrl;
   private get headers() {
     const token =
       typeof window !== 'undefined' && localStorage.getItem('token');
@@ -19,7 +21,7 @@ export class OrdersService {
 
   paymentOnline = (bagId: string, shippingAddress: object): Observable<any> => {
     return this.httpCLient.post(
-      `${baseUrl}/${this.checkoutBaseUrl}/checkout-session/${bagId}?url=${appUrl}`,
+      `${this.baseUrl}/${this.checkoutBaseUrl}/checkout-session/${bagId}?url=${this.appUrl}`,
       {
         shippingAddress,
       },
@@ -34,7 +36,7 @@ export class OrdersService {
     shippingAddress: object
   ): Observable<any> => {
     return this.httpCLient.post(
-      `${baseUrl}/${this.checkoutBaseUrl}/${bagId}`,
+      `${this.baseUrl}/${this.checkoutBaseUrl}/${bagId}`,
       {
         shippingAddress,
       },
@@ -46,7 +48,7 @@ export class OrdersService {
 
   getLoggedUserOrders = (userID: string): Observable<any> => {
     return this.httpCLient.get(
-      `${baseUrl}/${this.checkoutBaseUrl}/user/${userID}`
+      `${this.baseUrl}/${this.checkoutBaseUrl}/user/${userID}`
     );
   };
 }

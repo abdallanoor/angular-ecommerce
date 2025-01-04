@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { baseUrl } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class FavoritesService {
   private httpCLient = inject(HttpClient);
 
   private FavoritesBaseUrl = 'api/v1/wishlist';
+  private baseUrl = environment.baseUrl;
+
   private get headers() {
     const token =
       typeof window !== 'undefined' && localStorage.getItem('token');
@@ -20,7 +22,7 @@ export class FavoritesService {
 
   addProductToFavorites = (productId: string): Observable<any> => {
     return this.httpCLient.post(
-      `${baseUrl}/${this.FavoritesBaseUrl}`,
+      `${this.baseUrl}/${this.FavoritesBaseUrl}`,
       {
         productId,
       },
@@ -31,14 +33,14 @@ export class FavoritesService {
   };
 
   getLoggedUserFavorites = (): Observable<any> => {
-    return this.httpCLient.get(`${baseUrl}/${this.FavoritesBaseUrl}`, {
+    return this.httpCLient.get(`${this.baseUrl}/${this.FavoritesBaseUrl}`, {
       headers: this.headers,
     });
   };
 
   removeProductFromFavorites = (productId: string): Observable<any> => {
     return this.httpCLient.delete(
-      `${baseUrl}/${this.FavoritesBaseUrl}/${productId}`,
+      `${this.baseUrl}/${this.FavoritesBaseUrl}/${productId}`,
       {
         headers: this.headers,
       }
