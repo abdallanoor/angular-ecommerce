@@ -18,6 +18,7 @@ import { addProductToBag } from '../../shared/utils/bag.utils';
 import { addToProductToFavorites } from '../../shared/utils/favorites.utils';
 import { FavoritesService } from '../../core/services/favorites.service';
 import { BagService } from '../../core/services/bag.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
@@ -31,6 +32,7 @@ import { BagService } from '../../core/services/bag.service';
     SkeletonModule,
     ProductCardComponent,
     ProductDetailsLoader,
+    CurrencyPipe,
   ],
   templateUrl: './product-details.component.html',
 })

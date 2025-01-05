@@ -6,12 +6,18 @@ import { RouterLink } from '@angular/router';
 import { BagLoader } from '../../shared/ui/skeleton-loaders/bag-loader.component';
 import { Bag } from '../../core/interfaces/bag';
 import { BagService } from '../../core/services/bag.service';
-import { isPlatformBrowser } from '@angular/common';
+import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-bag',
   standalone: true,
-  imports: [ProductCardComponent, ButtonModule, RouterLink, BagLoader],
+  imports: [
+    ProductCardComponent,
+    ButtonModule,
+    RouterLink,
+    BagLoader,
+    CurrencyPipe,
+  ],
   templateUrl: './bag.component.html',
 })
 export class BagComponent implements OnInit {

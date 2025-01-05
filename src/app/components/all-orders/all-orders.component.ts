@@ -1,6 +1,11 @@
 import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { DatePipe, isPlatformBrowser, NgClass } from '@angular/common';
+import {
+  CurrencyPipe,
+  DatePipe,
+  isPlatformBrowser,
+  NgClass,
+} from '@angular/common';
 import { AuthService } from '../../core/services/auth.service';
 import { OrdersService } from '../../core/services/orders.service';
 import { Order } from '../../core/interfaces/order';
@@ -21,15 +26,15 @@ import { RouterLink } from '@angular/router';
     Dialog,
     RouterLink,
     NgClass,
+    DatePipe,
+    CurrencyPipe,
   ],
   templateUrl: './all-orders.component.html',
-  providers: [DatePipe],
 })
 export class AllOrdersComponent {
   private authService = inject(AuthService);
   private ordersService = inject(OrdersService);
   private platform = inject(PLATFORM_ID);
-  private datePipe = inject(DatePipe);
 
   orders: Order[] = [] as Order[];
   orderDetails: Partial<Order> = {};
@@ -48,14 +53,7 @@ export class AllOrdersComponent {
         this.ordersService.getLoggedUserOrders(userData.id).subscribe({
           next: (orders: Order[]) => {
             this.isLoading = false;
-            this.orders = orders
-              .map((order: Order) => ({
-                ...order,
-                createdAt: order.createdAt
-                  ? this.datePipe.transform(order.createdAt, 'MMM d, yyyy')
-                  : 'N/A',
-              }))
-              .reverse();
+            this.orders = orders.reverse();
           },
           error: (error) => {
             this.isLoading = false;

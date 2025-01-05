@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { ToastService } from '../../../core/services/toast.service';
 import { addProductToBag } from '../../utils/bag.utils';
-import { NgClass } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 import { addToProductToFavorites } from '../../utils/favorites.utils';
 import { FavoritesService } from '../../../core/services/favorites.service';
 import { BagService } from '../../../core/services/bag.service';
@@ -12,7 +12,7 @@ import { BagService } from '../../../core/services/bag.service';
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [RouterLink, ButtonModule, NgClass],
+  imports: [RouterLink, ButtonModule, NgClass, CurrencyPipe],
   templateUrl: './product-card.component.html',
 })
 export class ProductCardComponent {

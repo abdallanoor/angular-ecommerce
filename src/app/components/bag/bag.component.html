@@ -43,7 +43,7 @@
     <div class="sticky top-28 h-fit flex flex-col gap-2 text-sm max-md:mt-5">
       <div class="flex justify-between items-center">
         <p>Subtotal</p>
-        <p>EGP {{ bag.data.totalCartPrice }}</p>
+        <p>{{ bag.data.totalCartPrice | currency : "EGP " }}</p>
       </div>
       <div class="flex justify-between items-center">
         <p>Delivery</p>
@@ -54,7 +54,7 @@
           Total
           <span class="block text-xs font-normal">Taxes included</span>
         </p>
-        <p>EGP {{ bag.data.totalCartPrice }}</p>
+        <p>{{ bag.data.totalCartPrice | currency : "EGP " }}</p>
       </div>
       <p-button
         [routerLink]="'/checkout/' + bag.cartId"

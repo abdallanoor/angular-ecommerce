@@ -33,10 +33,10 @@
         </a>
 
         @if (isBagProduct) {
-        <p class="font-bold">EGP {{ bagProductPrice }}</p>
+        <p class="font-bold">{{ bagProductPrice | currency : "EGP " }}</p>
         <p class="mt-4 md:mt-1">Qty: {{ bagProductCount }}</p>
         } @else {
-        <p class="font-bold">EGP {{ product.price }}</p>
+        <p class="font-bold">{{ product.price | currency : "EGP " }}</p>
         }
       </div>
 

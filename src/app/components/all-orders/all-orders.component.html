@@ -14,7 +14,7 @@
     </ng-template>
     <ng-template #body let-order>
       <tr class="max-sm:text-sm">
-        <td class="w-max">{{ order.createdAt }}</td>
+        <td class="w-max">{{ order.createdAt | date }}</td>
         <td>{{ order.id }}</td>
         <td class="w-max">
           {{ order.isDelivered == true ? "Delivered" : "Processing" }}
@@ -23,7 +23,7 @@
         <td class="capitalize">
           {{ order.paymentMethodType }}
         </td>
-        <td>EGP {{ order.totalOrderPrice }}</td>
+        <td>{{ order.totalOrderPrice | currency : "EGP " }}</td>
         <td>{{ order.cartItems.length }}</td>
         <td>
           <p-button
@@ -74,16 +74,18 @@
         </p>
         <p>
           Order Date:
-          <span class="font-normal block">{{ orderDetails.createdAt }}</span>
+          <span class="font-normal block">{{
+            orderDetails.createdAt | date
+          }}</span>
         </p>
         <p>
           ID: <span class="font-normal block">{{ orderDetails.id }}</span>
         </p>
         <p>
           Total:
-          <span class="font-normal block"
-            >EGP {{ orderDetails.totalOrderPrice }}</span
-          >
+          <span class="font-normal block">{{
+            orderDetails.totalOrderPrice | currency : "EGP "
+          }}</span>
         </p>
       </div>
       @for (item of orderDetails.cartItems; track $index ; let last = $last) {
@@ -106,7 +108,7 @@
             <p>{{ item.product.title }}</p>
           </a>
           <p>Quantity: {{ item.count }}</p>
-          <p>EGP {{ item.price }}</p>
+          <p>{{ item.price | currency : "EGP " }}</p>
         </div>
       </div>
       }
