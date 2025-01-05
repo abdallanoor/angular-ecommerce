@@ -1,11 +1,23 @@
 <section class="container mt-4">
   <h2 class="font-medium">NEW FOR MEN</h2>
+  <p-inputgroup class="!w-80 !my-2">
+    <p-inputgroup-addon>
+      <i class="pi pi-search"></i>
+    </p-inputgroup-addon>
+    <input pInputText [(ngModel)]="searchKey" placeholder="Search" />
+  </p-inputgroup>
+
+  @if (!isLoading && ((products | search: searchKey).length === 0 ||
+  products.length === 0)) {
+  <p class="text-lg">No products found</p>
+  }
+
   <div
     class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 gap-y-4 my-4"
   >
     @if (isLoading) { @for (skeleton of productSkeletons; track $index) {
     <product-card-loader />
-    } } @for (product of products; track product._id) {
+    } } @for (product of products | search: searchKey; track product._id) {
     <app-product-card [product]="product" />
     }
   </div>
