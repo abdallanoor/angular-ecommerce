@@ -11,22 +11,12 @@ export class OrdersService {
   private checkoutBaseUrl = 'api/v1/orders';
   private baseUrl = environment.baseUrl;
   private appUrl = environment.appUrl;
-  private get headers() {
-    const token =
-      typeof window !== 'undefined' && localStorage.getItem('token');
-    return {
-      token: token || '',
-    };
-  }
 
   paymentOnline = (bagId: string, shippingAddress: object): Observable<any> => {
     return this.httpCLient.post(
       `${this.baseUrl}/${this.checkoutBaseUrl}/checkout-session/${bagId}?url=${this.appUrl}`,
       {
         shippingAddress,
-      },
-      {
-        headers: this.headers,
       }
     );
   };
@@ -39,9 +29,6 @@ export class OrdersService {
       `${this.baseUrl}/${this.checkoutBaseUrl}/${bagId}`,
       {
         shippingAddress,
-      },
-      {
-        headers: this.headers,
       }
     );
   };

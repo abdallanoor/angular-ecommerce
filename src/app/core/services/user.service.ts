@@ -12,21 +12,10 @@ export class UserService {
   private usersBaseUrl = 'api/v1/users';
   private baseUrl = environment.baseUrl;
 
-  private get headers() {
-    const token =
-      typeof window !== 'undefined' && localStorage.getItem('token');
-    return {
-      token: token || '',
-    };
-  }
-
   changePassword = (newPassword: any): Observable<any> => {
     return this.httpClient.put(
       `${this.baseUrl}/${this.usersBaseUrl}/changeMyPassword`,
-      newPassword,
-      {
-        headers: this.headers,
-      }
+      newPassword
     );
   };
   getLoggedUserData = (userId: any): Observable<any> => {
@@ -37,10 +26,7 @@ export class UserService {
   updateLoggedUserData = (userData: any): Observable<any> => {
     return this.httpClient.put(
       `${this.baseUrl}/${this.usersBaseUrl}/updateMe`,
-      userData,
-      {
-        headers: this.headers,
-      }
+      userData
     );
   };
 }

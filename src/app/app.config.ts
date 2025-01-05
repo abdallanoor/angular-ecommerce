@@ -10,8 +10,13 @@ import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { MyPreset } from './mytheme';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import { IMAGE_CONFIG } from '@angular/common';
+import { headersInterceptor } from './core/interceptors/headers.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,7 +27,7 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })
     ),
     provideClientHydration(),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(), withInterceptors([headersInterceptor])),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {

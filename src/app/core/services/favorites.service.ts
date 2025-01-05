@@ -12,38 +12,19 @@ export class FavoritesService {
   private FavoritesBaseUrl = 'api/v1/wishlist';
   private baseUrl = environment.baseUrl;
 
-  private get headers() {
-    const token =
-      typeof window !== 'undefined' && localStorage.getItem('token');
-    return {
-      token: token || '',
-    };
-  }
-
   addProductToFavorites = (productId: string): Observable<any> => {
-    return this.httpCLient.post(
-      `${this.baseUrl}/${this.FavoritesBaseUrl}`,
-      {
-        productId,
-      },
-      {
-        headers: this.headers,
-      }
-    );
+    return this.httpCLient.post(`${this.baseUrl}/${this.FavoritesBaseUrl}`, {
+      productId,
+    });
   };
 
   getLoggedUserFavorites = (): Observable<any> => {
-    return this.httpCLient.get(`${this.baseUrl}/${this.FavoritesBaseUrl}`, {
-      headers: this.headers,
-    });
+    return this.httpCLient.get(`${this.baseUrl}/${this.FavoritesBaseUrl}`);
   };
 
   removeProductFromFavorites = (productId: string): Observable<any> => {
     return this.httpCLient.delete(
-      `${this.baseUrl}/${this.FavoritesBaseUrl}/${productId}`,
-      {
-        headers: this.headers,
-      }
+      `${this.baseUrl}/${this.FavoritesBaseUrl}/${productId}`
     );
   };
 }
