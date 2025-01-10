@@ -14,7 +14,7 @@ export const registerForm: FormGroup = formBuilder.group(
 );
 
 export const loginForm: FormGroup = formBuilder.group({
-  email: ['ecommerce.angular@gmail.com', authValidators.email],
+  email: ['abdallahabdelaziznoor@gmail.com', authValidators.email],
   password: ['11111111', authValidators.password],
 });
 
